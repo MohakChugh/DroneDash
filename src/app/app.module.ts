@@ -9,6 +9,9 @@ import { FooterComponent } from './footer/footer.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { LivestreamComponent } from './livestream/livestream.component';
 import { TableComponent } from './table/table.component';
+import { AdminLivestreamComponent } from './admin-livestream/admin-livestream.component';
+import { PlantMainpageComponent } from './plant-mainpage/plant-mainpage.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { TableComponent } from './table/table.component';
     FooterComponent,
     MainpageComponent,
     LivestreamComponent,
-    TableComponent
+    TableComponent,
+    AdminLivestreamComponent,
+    PlantMainpageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

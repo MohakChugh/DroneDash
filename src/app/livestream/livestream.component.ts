@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LivestreamComponent implements OnInit {
 
+  CompanyName = 'Hindalco';
+  CurrentDateandTime = new Date();
   constructor() { }
 
   ngOnInit(): void {
