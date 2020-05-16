@@ -7,16 +7,17 @@ import { LivestreamComponent } from './livestream/livestream.component';
 import { AdminLivestreamComponent } from './admin-livestream/admin-livestream.component';
 import { TableComponent } from './table/table.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
+import { AdminAuthGuard } from './admin-auth.guard';
+import { BasicAuthGuard } from './basic-auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admindashboard', component: MainpageComponent },
-  { path: 'plantmainpage', component: PlantMainpageComponent },
-  { path: 'plantlivestream', component: LivestreamComponent },
-  { path: 'adminlivestream', component: AdminLivestreamComponent },
-  { path: 'reports', component: TableComponent },
+  { path: 'admindashboard', component: MainpageComponent, canActivate: [AdminAuthGuard] },
+  { path: 'adminlivestream', component: AdminLivestreamComponent, canActivate: [AdminAuthGuard] },
+  { path: 'plantmainpage', component: PlantMainpageComponent, canActivate: [BasicAuthGuard] },
+  { path: 'plantlivestream', component: LivestreamComponent, canActivate: [BasicAuthGuard] },
+  { path: 'reports', component: TableComponent, canActivate: [BasicAuthGuard] },
   { path: '**', component: PageNotFoundComponent }
 ];
 

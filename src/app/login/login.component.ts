@@ -11,23 +11,29 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
+  loading = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   login() {
+    this.loading = true;
     axios.default.post('http://localhost:3000/login', {
       email: this.email,
       password: this.password
     })
       .then(response => {
+        this.loading = false;
         console.log(response.data);
         if (response.data.error === false) {
           if (this.email !== 'admin@admin.com') {
+            localStorage.setItem('isAuth', 'true');
             this.router.navigateByUrl('plantmainpage');
           } else {
+            localStorage.setItem('isAuth', 'true');
             localStorage.setItem('isAdmin', 'true');
+            this.router.navigateByUrl('admindashboard');
           }
         }
       })

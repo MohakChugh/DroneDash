@@ -27,7 +27,9 @@
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                       </div>
-                    </div><button class="btn btn-primary btn-block text-white btn-user" type="submit" (click)='login()'>Login</button>
+                    </div>
+                    <div *ngIf="loading" style="text-align: center;" class="alert alert-info">LOADING</div>
+                    <button class="btn btn-primary btn-block text-white btn-user" type="submit" (click)='login()'>Login</button>
                     <hr>
                   </form>
                 </div>
