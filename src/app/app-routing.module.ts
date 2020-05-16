@@ -10,14 +10,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'admindashboard', component: MainpageComponent},
-  {path: 'plantmainpage', component: PlantMainpageComponent},
-  {path: 'plantlivestream', component: LivestreamComponent},
-  {path: 'adminlivestream', component: AdminLivestreamComponent},
-  {path: 'reports', component: TableComponent},
-  {path: '**', component: PageNotFoundComponent}
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'admindashboard', component: MainpageComponent },
+  { path: 'plantmainpage', component: PlantMainpageComponent },
+  { path: 'plantlivestream', component: LivestreamComponent },
+  { path: 'adminlivestream', component: AdminLivestreamComponent },
+  { path: 'reports', component: TableComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

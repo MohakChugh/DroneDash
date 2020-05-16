@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLivestreamComponent implements OnInit {
 
+  // tslint:disable-next-line: variable-name
   company_name = 'Hindalco';
   Time = new Date();
   constructor() { }
