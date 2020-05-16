@@ -17,9 +17,9 @@
                   </div>
                   <form class="user">
                     <div class="form-group">
-                      <input class="form-control form-control-user" type="email"
-                        id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..."
-                        name="email" [(ngModel)]="email">
+                      <input class="form-control form-control-user" type="email" id="exampleInputEmail"
+                        aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"
+                        [(ngModel)]="email">
                     </div>
                     <div class="form-group"><input class="form-control form-control-user" type="password"
                         id="exampleInputPassword" placeholder="Password" name="password" [(ngModel)]="password">
@@ -29,8 +29,10 @@
                       </div>
                     </div>
                     <div *ngIf="loading" style="text-align: center;" class="alert alert-info">LOADING</div>
-                    <div *ngIf="incorrect" style="text-align: center;" class="alert alert-danger">The Email or the Password is Incorrect</div>
-                    <button class="btn btn-primary btn-block text-white btn-user" type="submit" (click)='login()'>Login</button>
+                    <div *ngIf="incorrect" style="text-align: center;" class="alert alert-danger">The Email or the
+                      Password is Incorrect</div>
+                    <button class="btn btn-primary btn-block text-white btn-user" type="submit"
+                      (click)='login()'>Login</button>
                     <hr>
                   </form>
                 </div>
