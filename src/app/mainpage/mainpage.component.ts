@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogoutService } from '../logout.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public logout: LogoutService) { }
 
   ngOnInit(): void {
   }

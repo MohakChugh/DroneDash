@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogoutService } from '../logout.service';
 
 @Component({
   selector: 'app-livestream',
@@ -9,7 +10,7 @@ export class LivestreamComponent implements OnInit {
 
   CompanyName = 'Hindalco';
   CurrentDateandTime = new Date();
-  constructor() { }
+  constructor(public logout: LogoutService) { }
 
   ngOnInit(): void {
   }
