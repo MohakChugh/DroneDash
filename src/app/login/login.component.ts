@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   loading = false;
+  incorrect = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
       .then(response => {
         this.loading = false;
         console.log(response.data);
-        if (response.data.error === false) {
+        if (response.data.error === false && !!response.data.token === true) {
+          // Checking if the user is Admin
           if (this.email !== 'admin@admin.com') {
             localStorage.setItem('isAuth', 'true');
             this.router.navigateByUrl('plantmainpage');
@@ -35,6 +37,8 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('isAdmin', 'true');
             this.router.navigateByUrl('admindashboard');
           }
+        } else {
+          this.incorrect = true;
         }
       })
       .catch(err => {
