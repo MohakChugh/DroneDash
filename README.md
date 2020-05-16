@@ -7,3 +7,12 @@
 - [] Add Report System
 - [] Report Generated Flow System `(RBACK SYSTEM)`
 - [] Notifications on Live Feed via Whatsapp
+
+## Admin Usage
+- Credentials
+    1. Email : admin@admin.com
+    2. Password : admin
+- Powers
+    1. Can register a new User
+    2. Can perform activities according to the roleback system
+    3. Can view livestream of all the users
