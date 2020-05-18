@@ -22,7 +22,7 @@ export class LivestreamComponent implements OnInit {
     console.log(this.liveStreamUrl);
   }
 
-  player() {
+  async player() {
     this.liveStreamOn = true;
     if (flvjs.default.isSupported()) {
       const videoElement = document.getElementById('videoElement') as HTMLMediaElement;
@@ -30,11 +30,10 @@ export class LivestreamComponent implements OnInit {
         type: 'flv',
         url: this.liveStreamUrl
       });
-      flvPlayer.attachMediaElement(videoElement);
-      flvPlayer.load();
       try {
-        flvPlayer.play();
-        // .catch(err => alert('Error Occured'));
+        flvPlayer.attachMediaElement(videoElement);
+        flvPlayer.load();
+        await flvPlayer.play();
       } catch (err) {
         console.log(err);
         alert('Error Occured! Stream is not working!');
