@@ -1,8 +1,8 @@
 # Hindalco Dashboard
 
 ## Todo 
-- [] Complete Authentication
-- [] Only Let The Admin add new Users
+- [x] Complete Authentication
+- [x] Only Let The Admin add new Users
 - [] Role Based Access for live Stream
 - [] Add Report System
 - [] Report Generated Flow System `(RBACK SYSTEM)`
