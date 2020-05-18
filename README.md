@@ -16,3 +16,9 @@
     1. Can register a new User
     2. Can perform activities according to the roleback system
     3. Can view livestream of all the users
+
+## How the registration works
+Register the company with a username, eg `Lapanga`.
+Make sure to add a secure password: eg `lapanga@123`.
+Then when the user is registered, then the drone link for the plant becomes : `rtmp://35.188.41.41/live/{{plantname}}`
+ie. If the name of the plant is Dahej, Then the drone link for the plant is `rtmp://35.188.41.41/live/dahej`
