@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loading = true;
-    axios.default.post('https://omnipresent-dashboard-backend.herokuapp.com/', {
+    axios.default.post('https://omnipresent-dashboard-backend.herokuapp.com/login', {
       email: this.email,
       password: this.password
     })
