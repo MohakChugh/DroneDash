@@ -13,6 +13,7 @@ import { TableComponent } from './table/table.component';
 import { AdminLivestreamComponent } from './admin-livestream/admin-livestream.component';
 import { PlantMainpageComponent } from './plant-mainpage/plant-mainpage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     TableComponent,
     AdminLivestreamComponent,
     PlantMainpageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
