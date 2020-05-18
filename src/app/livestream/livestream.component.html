@@ -14,7 +14,9 @@
         <div class="container">
           <div class="vplayer" data-v="">
             <div *ngIf="!liveStreamOn" (click)="player()" class="plybtn"></div>
+            <!-- Not working Right now -->
             <video *ngIf="liveStreamOn" id="videoElement"></video>
+            <!-- FIXME -->
           </div>
 
 
