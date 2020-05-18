@@ -7,6 +7,7 @@
 - [] Add Report System
 - [] Report Generated Flow System `(RBACK SYSTEM)`
 - [] Notifications on Live Feed via Whatsapp
+- [] Check if livestream works when deployed to github pages
 
 ## Admin Usage
 - Credentials
