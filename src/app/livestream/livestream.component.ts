@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { LogoutService } from '../logout.service';
 import * as flvjs from 'flv.js';
 

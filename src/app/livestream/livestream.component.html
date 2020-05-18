@@ -13,9 +13,10 @@
         </div>
         <div class="container">
           <div style="background-color: black;" (click)="player()">
-            <button *ngIf="!liveStreamOn" class="alert alert-dark" style="text-align: center;"> CLICK ANYWHERE ON THE PLAYER TO PLAY </button>
+            <div *ngIf="!liveStreamOn" class="alert alert-dark" style="text-align: center;"> CLICK ANYWHERE ON THE PLAYER TO PLAY </div>
             <video id="videoElement" width="100%">
             </video>
+            <div *ngIf="!liveStreamOn" class="alert alert-dark" style="text-align: center;"> CLICK ANYWHERE ON THE PLAYER TO PLAY </div>
           </div>
         <h4 class="center">{{CompanyName}} - {{ CurrentDateandTime | date }}</h4>
       </div>
