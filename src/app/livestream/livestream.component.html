@@ -13,8 +13,11 @@
         </div>
         <div class="container">
           <div class="vplayer" data-v="">
-            <div class="plybtn"></div>
+            <div *ngIf="!liveStreamOn" (click)="player()" class="plybtn"></div>
+            <video *ngIf="liveStreamOn" id="videoElement"></video>
           </div>
+
+
           <h4 class="center">{{CompanyName}} - {{ CurrentDateandTime | date }}</h4>
         </div>
         <div></div>
