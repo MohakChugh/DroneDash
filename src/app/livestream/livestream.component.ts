@@ -11,7 +11,7 @@ export class LivestreamComponent implements OnInit {
 
   CompanyName: string;
   CurrentDateandTime = new Date();
-  liveStreamUrl = 'wss://35.188.41.41:8000/live/';
+  liveStreamUrl = 'ws://35.222.157.43:8000/live/';
   liveStreamOn = false;
   constructor(public logout: LogoutService) { }
 
@@ -30,9 +30,9 @@ export class LivestreamComponent implements OnInit {
         type: 'flv',
         url: this.liveStreamUrl
       });
+      flvPlayer.attachMediaElement(videoElement);
+      flvPlayer.load();
       try {
-        flvPlayer.attachMediaElement(videoElement);
-        flvPlayer.load();
         await flvPlayer.play();
       } catch (err) {
         console.log(err);
