@@ -11,7 +11,7 @@ export class LivestreamComponent implements OnInit {
 
   CompanyName: string;
   CurrentDateandTime = new Date();
-  liveStreamUrl = 'ws://35.188.41.41:8000/live/';
+  liveStreamUrl = 'wss://35.188.41.41:8000/live/';
   liveStreamOn = false;
   constructor(public logout: LogoutService) { }
 
