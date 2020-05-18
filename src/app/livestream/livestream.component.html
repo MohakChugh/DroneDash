@@ -12,17 +12,12 @@
           <h1>Live Stream</h1>
         </div>
         <div class="container">
-          <div class="vplayer" data-v="">
-            <div *ngIf="!liveStreamOn" (click)="player()" class="plybtn"></div>
-            <!-- Not working Right now -->
-            <video *ngIf="liveStreamOn" id="videoElement"></video>
-            <!-- FIXME -->
+          <div style="background-color: black;" (click)="player()">
+            <button *ngIf="!liveStreamOn" class="alert alert-dark" style="text-align: center;"> CLICK ANYWHERE ON THE PLAYER TO PLAY </button>
+            <video id="videoElement" width="100%">
+            </video>
           </div>
-
-
-          <h4 class="center">{{CompanyName}} - {{ CurrentDateandTime | date }}</h4>
-        </div>
-        <div></div>
+        <h4 class="center">{{CompanyName}} - {{ CurrentDateandTime | date }}</h4>
       </div>
       <app-footer></app-footer>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
