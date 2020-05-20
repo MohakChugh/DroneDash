@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LogoutService } from '../logout.service';
 import * as axios from 'axios';
 import * as flvjs from 'flv.js';
+import { strict } from 'assert';
 
 @Component({
   selector: 'app-admin-livestream',
@@ -39,15 +40,18 @@ export class AdminLivestreamComponent implements OnInit {
 
   async player(index) {
     this.liveStreamUrl = this.urls[index];
-    this.liveStreamOn = true;
+    setTimeout(() => {
+      this.liveStreamOn = true;
+    }, 2000);
     if (flvjs.default.isSupported()) {
-      const videoElement = document.getElementById('videoElement') as HTMLMediaElement;
-      const flvPlayer = flvjs.default.createPlayer({
+      const element = 'videoElement' + index;
+      const videoElement = document.getElementById(element) as HTMLMediaElement;
+      const flvPlayer = await flvjs.default.createPlayer({
         type: 'flv',
         url: this.liveStreamUrl
       });
-      flvPlayer.attachMediaElement(videoElement);
-      flvPlayer.load();
+      await flvPlayer.attachMediaElement(videoElement);
+      await flvPlayer.load();
       try {
         await flvPlayer.play();
       } catch (err) {

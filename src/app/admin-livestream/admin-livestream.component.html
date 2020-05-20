@@ -13,22 +13,13 @@
         </div>
         <div class="container">
           <div class="row">
-
-            <!-- <div class="col-xl-6" *ngFor="let name of names, let url of urls let i = index" [attr.data-index]="i">
-              <h1>{{name}} - {{Time | date}}</h1>
-              <div (click)="player(i)" style="background-color: black;">
-                <div *ngIf="!liveStreamOn" class="alert alert-dark" style="text-align: center;"> CLICK ANYWHERE ON THE
-                  PLAYER TO PLAY </div>
-                <video id="videoElement" width="100%">
-                </video>
-              </div>
-            </div> -->
-            <div div class="col-xl-3" *ngFor="let name of names let i = index" [attr.data-index]="i">
+            <div div class="col-xl-6" *ngFor="let name of names let i = index" [attr.data-index]="i">
               <button class="btn btn-info" (click)="player(i)"> Click here to get The live stream of {{name}}</button>
-            </div>
-            <br><br><br><hr>
-            <div class="col-xl-12" style="background-color: black;">
-              <video id="videoElement" width="100%">
+              <br><br><br>
+              <div *ngIf="!liveStreamOn" class="vplayer" data-v="" (click)="player(i)">
+                <div class="plybtn" (click)="player(i)"></div>
+              </div>
+              <video *ngIf="liveStreamOn" style="background-color: black;" id="videoElement{{i}}" width="100%">
               </video>
             </div>
           </div>
