@@ -23,3 +23,7 @@ Register the company with a username, eg `Lapanga`.
 Make sure to add a secure password: eg `lapanga@123`.
 Then when the user is registered, then the drone link for the plant becomes : `rtmp://35.188.41.41/live/{{plantname}}`
 ie. If the name of the plant is Dahej, Then the drone link for the plant is `rtmp://35.188.41.41/live/dahej`
+
+## Deployement on GCP
+clone the repo, and save the dist folder (output folder) in /var/www,
+Then restart the nginx server
