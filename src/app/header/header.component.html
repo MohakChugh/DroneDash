@@ -14,7 +14,7 @@
             class="fas fa-table"></i><span>Reports</span></a></li>
       <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/routePath']"><i
             class="far fa-user-circle"></i><span>Login</span></a></li>
-      <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/register']"><i
+      <li *ngIf="isAdmin" class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/register']"><i
             class="fas fa-user-circle"></i><span>Register</span></a></li>
       <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/routePath']"><i
             class="fas fa-key"></i><span>Forgotten Password</span></a></li>
