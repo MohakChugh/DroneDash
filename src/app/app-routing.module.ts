@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AdminAuthGuard } from './admin-auth.guard';
 import { BasicAuthGuard } from './basic-auth.guard';
 import { RegisterComponent } from './register/register.component';
+import { ReportGenerationComponent } from './report-generation/report-generation.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'plantmainpage', component: PlantMainpageComponent, canActivate: [BasicAuthGuard] },
   { path: 'plantlivestream', component: LivestreamComponent, canActivate: [BasicAuthGuard] },
   { path: 'reports', component: TableComponent, canActivate: [BasicAuthGuard] },
+  { path: 'reportCreate', component: ReportGenerationComponent, canActivate: [BasicAuthGuard] },
   { path: '**', component: PageNotFoundComponent }
 ];
 

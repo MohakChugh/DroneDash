@@ -14,6 +14,7 @@ import { AdminLivestreamComponent } from './admin-livestream/admin-livestream.co
 import { PlantMainpageComponent } from './plant-mainpage/plant-mainpage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
+import { ReportGenerationComponent } from './report-generation/report-generation.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
     AdminLivestreamComponent,
     PlantMainpageComponent,
     PageNotFoundComponent,
-    RegisterComponent
+    RegisterComponent,
+    ReportGenerationComponent
   ],
   imports: [
     BrowserModule,
