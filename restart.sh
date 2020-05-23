@@ -1,3 +1,3 @@
 #!/bin/sh
 git pull origin master
-sudo sysctl restart nginx
+sudo systemctl restart nginx
