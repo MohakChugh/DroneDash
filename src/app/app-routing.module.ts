@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent, canActivate: [AdminAuthGuard] },
   { path: 'admindashboard', component: MainpageComponent /*, canActivate: [AdminAuthGuard] */},
-  { path: 'adminlivestream', component: AdminLivestreamComponent, canActivate: [AdminAuthGuard] },
+  { path: 'adminlivestream', component: AdminLivestreamComponent /*, canActivate: [AdminAuthGuard] */},
   { path: 'plantmainpage', component: PlantMainpageComponent, canActivate: [BasicAuthGuard] },
   { path: 'plantlivestream', component: LivestreamComponent, canActivate: [BasicAuthGuard] },
   { path: 'reports', component: TableComponent, canActivate: [BasicAuthGuard] },
