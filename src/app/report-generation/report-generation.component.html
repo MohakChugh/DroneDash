@@ -1,64 +1,80 @@
 <div id="page-top">
-    <div id="wrapper">
-        <app-header></app-header>
-        <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
-                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><a class="btn btn-danger btn-icon-split" role="button"><span class="text-white text">Logout</span></a></div>
-                </nav>
-                <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Reports</h3>
-                    <div class="row mb-3">
-                        <div class="col-lg-4">
-                            <div class="card mb-3">
-                                <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="assets/img/hindalcologo.jpeg" width="160" height="160"></div>
-                            </div>
-                            <div class="card shadow mb-4"></div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card shadow mb-3">
-                                        <div class="card-header py-3">
-                                            <p class="text-primary m-0 font-weight-bold">Report Details</p>
-                                        </div>
-                                        <div class="card-body">
-                                            <form>
-                                                <div class="form-row">
-                                                    <div class="col">
-                                                        <div class="form-group"><label for="username"><strong>Report Name</strong></label><input [(ngModel)]="reportName" class="form-control" type="text" placeholder="Report Name" name="reportName"></div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="form-group"><label for="email"><strong>Report Month&nbsp;</strong></label><input [(ngModel)]="reportMonth" class="form-control" type="text" placeholder="Report Month" name="reportMonth"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="col">
-                                                        <div class="form-group"><label for="username"><strong>Document Reference Number&nbsp;</strong></label><input [(ngModel)]="documentReferenceNumber" class="form-control" type="text" placeholder="Document Reference Number" name="documentReferenceNumber"></div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="form-group"><label for="email"><strong>Date of Report Writing</strong></label><input [(ngModel)]="dateOfReport" class="form-control" type="date" placeholder="date" name="date"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="col">
-                                                        <div class="form-group"><label for="first_name"><strong>Plant Name</strong></label><input [(ngModel)]="plantName" class="form-control" type="text" placeholder="Plant Name" name="plantName"></div>
-                                                        <div class="form-group"><label for="username"><strong>Report By</strong></label><input [(ngModel)]="reportBy" class="form-control" type="text" placeholder="name" name="name"></div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <!-- <a class="btn btn-light btn-icon-split" role="button"><span class="text-black-50 icon"><i class="fas fa-arrow-right"></i></span><span class="text-dark text">Upload Report Document</span></a> -->
-                                            <input [(ngModel)]="file" type="file" name="doc" class="btn btn-info"><br><br>
-                                            <button class="btn btn-block btn-info" (click)="upload()"> Save File </button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div id="wrapper">
+    <app-header></app-header>
+    <div class="d-flex flex-column" id="content-wrapper">
+      <div id="content">
+        <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+          <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop"
+              type="button"><i class="fas fa-bars"></i></button><a class="btn btn-danger btn-icon-split"
+              role="button"><span class="text-white text">Logout</span></a></div>
+        </nav>
+        <div class="container-fluid">
+          <h3 class="text-dark mb-4">Reports</h3>
+          <div class="row mb-3">
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4"
+                    src="assets/img/hindalcologo.jpeg" width="160" height="160"></div>
+              </div>
+              <div class="card shadow mb-4"></div>
             </div>
-            <app-footer></app-footer>
-        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+            <div class="col-lg-8">
+              <div class="row">
+                <div class="col">
+                  <div class="card shadow mb-3">
+                    <div class="card-header py-3">
+                      <p class="text-primary m-0 font-weight-bold">Report Details</p>
+                    </div>
+                    <div class="card-body">
+                      <form>
+                        <div class="form-row">
+                          <div class="col">
+                            <div class="form-group"><label for="username"><strong>Report Name</strong></label><input
+                                [(ngModel)]="reportName" class="form-control" type="text" placeholder="Report Name"
+                                name="reportName"></div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group"><label for="email"><strong>Report Month&nbsp;</strong></label><input
+                                [(ngModel)]="reportMonth" class="form-control" type="text" placeholder="Report Month"
+                                name="reportMonth"></div>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="col">
+                            <div class="form-group"><label for="username"><strong>Document Reference
+                                  Number&nbsp;</strong></label><input [(ngModel)]="documentReferenceNumber"
+                                class="form-control" type="text" placeholder="Document Reference Number"
+                                name="documentReferenceNumber"></div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group"><label for="email"><strong>Date of Report
+                                  Writing</strong></label><input [(ngModel)]="dateOfReport" class="form-control"
+                                type="date" placeholder="date" name="date"></div>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="col">
+                            <div class="form-group"><label for="first_name"><strong>Plant Name</strong></label><input
+                                [(ngModel)]="plantName" class="form-control" type="text" placeholder="Plant Name"
+                                name="plantName"></div>
+                            <div class="form-group"><label for="username"><strong>Report By</strong></label><input
+                                [(ngModel)]="reportBy" class="form-control" type="text" placeholder="name" name="name">
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                      <input [(ngModel)]="file" type="file" name="doc" class="btn btn-info"><br><br>
+                      <button class="btn btn-block btn-info" (click)="upload()"> Save File </button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-footer></app-footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+  </div>
 </div>

@@ -15,6 +15,7 @@ import { PlantMainpageComponent } from './plant-mainpage/plant-mainpage.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { ReportGenerationComponent } from './report-generation/report-generation.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ReportGenerationComponent } from './report-generation/report-generation
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
