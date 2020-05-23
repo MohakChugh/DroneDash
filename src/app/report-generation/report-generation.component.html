@@ -63,7 +63,7 @@
                           </div>
                         </div>
                       </form>
-                      <input [(ngModel)]="file" type="file" name="doc" class="btn btn-info"><br><br>
+                      <input type="file" name="doc" class="btn btn-info" (change)="onSelectedFile($event)"><br><br>
                       <button class="btn btn-block btn-info" (click)="upload()"> Save File </button>
                     </div>
 

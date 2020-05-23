@@ -23,15 +23,19 @@ export class ReportGenerationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSelectedFile(event) {
+    this.file = event.target.files[0];
+  }
+
   // FIXME: CORS ERROR IN FILE UPLOAD
   upload() {
-    const formdata: FormData = new FormData();
-    console.log(this.file);
+    const formdata = new FormData();
+    // console.log(this.file);
     formdata.append('file', this.file);
-    const headers = new HttpHeaders();
+    // const headers = new HttpHeaders();
     // headers.append('Access-Control-Allow-Origin', '*');
-    headers.append('Content-Type', 'multipart/form-data');
-    this.http.post(this.fileUploadUrl, formdata, {headers})
+    // headers.append('Content-Type', 'multipart/form-data');
+    this.http.post(this.fileUploadUrl, formdata)
       .subscribe(res => {
         console.log(res);
       });
