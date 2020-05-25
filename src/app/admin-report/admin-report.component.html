@@ -10,6 +10,7 @@
           </nav>
           <div class="container-fluid">
             <h3 class="text-dark mb-4">PLANT NAME</h3>
+            <!-- <div *ngIf="loading" class="alert alert-primary">UPLOADING</div> -->
             <div class="card shadow">
               <div class="card-header py-3">
                 <p class="text-primary m-0 font-weight-bold">PLANT NAME&nbsp; Plant Reports</p>
@@ -31,7 +32,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let report of reports">
+                      <tr *ngFor="let report of reports; let i = index" [attr.data-index]="i">
                         <td>{{report.reportName}}</td>
                         <td>{{report.reportby}}</td>
                         <td>{{report.plantName}}</td>
@@ -39,7 +40,15 @@
                         <td>{{report.documentReferenceNumber}}</td>
                         <td>{{report.dateOfReportWriting}}</td>
                         <td> <a href="{{report.fileUrl}}">CLICK HERE</a></td>
-                        <td *ngIf="report.access === 'AdminOnly'"><button class="btn btn-danger">Not Validated</button></td>
+                        <!-- If the File is not validated yet -->
+                        <td *ngIf="report.access === 'AdminOnly' && !report.showInput"><button class="btn btn-danger" (click)="changeAccess(i)">Not Validated</button></td>
+                        <!-- Upload the new validated file -->
+                        <input *ngIf="report.showInput" class="alert alert-info" type="file" (change)="onSelectedFile($event)"><button *ngIf="report.showInput" class="btn btn-info" (click)="validate(i)">Upload</button>
+                        <br *ngIf="loading"><br *ngIf="loading">
+                        <div *ngIf="report.loading" class="spinner-border" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                        <!-- If the file is validated -->
                         <td *ngIf="report.access === 'plant'"><button class="btn btn-success">Validated</button></td>
                       </tr>
                     </tbody>

@@ -65,6 +65,10 @@
                       </form>
                       <input type="file" name="doc" class="btn btn-info" (change)="onSelectedFile($event)"><br><br>
                       <button class="btn btn-block btn-info" (click)="upload()"> Save File </button>
+                      <br>
+                      <div *ngIf="loading" class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
                     </div>
 
                   </div>

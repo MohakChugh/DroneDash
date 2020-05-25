@@ -20,6 +20,8 @@ export class ReportGenerationComponent implements OnInit {
   response: any;
   location: string;
 
+  loading = false;
+
   fileUploadUrl = 'https://omnipresent-dashboard-backend.herokuapp.com/upload';
   constructor(private http: HttpClient) { }
 
@@ -31,6 +33,7 @@ export class ReportGenerationComponent implements OnInit {
   }
 
   upload() {
+    this.loading = true;
     /* Check if all the form item fields are filled or not */
     // tslint:disable-next-line: max-line-length
     if (this.file && this.reportBy && this.reportMonth && this.reportName && this.documentReferenceNumber && this.plantName && this.dateOfReport) {
@@ -69,12 +72,14 @@ export class ReportGenerationComponent implements OnInit {
 
             await client.request(query)
               .then(data => {
+                this.loading = false;
                 alert('Uploaded!');
               })
               .catch((err) => err);
           }
         });
     } else {
+      this.loading = false;
       alert('One or more forms fields are Empty!');
     }
   }
