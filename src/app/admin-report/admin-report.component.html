@@ -26,6 +26,8 @@
                         <th>Document Reference Number</th>
                         <th>Date of Report Writing</th>
                         <th>Report Link</th>
+                        <th>Verified</th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -37,6 +39,8 @@
                         <td>{{report.documentReferenceNumber}}</td>
                         <td>{{report.dateOfReportWriting}}</td>
                         <td> <a href="{{report.fileUrl}}">CLICK HERE</a></td>
+                        <td *ngIf="report.access === 'AdminOnly'"><button class="btn btn-danger">Not Validated Yet</button></td>
+                        <td *ngIf="report.access === 'plant'"><button class="btn btn-success">Validated</button></td>
                       </tr>
                     </tbody>
                     <tfoot>
