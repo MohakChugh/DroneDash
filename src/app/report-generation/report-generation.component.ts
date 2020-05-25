@@ -26,6 +26,7 @@ export class ReportGenerationComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.plantName = localStorage.getItem('plant');
   }
 
   onSelectedFile(event) {

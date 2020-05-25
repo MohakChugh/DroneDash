@@ -22,7 +22,6 @@ export class TableComponent implements OnInit {
         'x-hasura-admin-secret': 'omnipresent'
       },
     });
-    // FIXME: Add a check if the access is admin only or everyone
     const query = `query MyQuery {
       rback(where: {access: {_eq: "plant"}, _and: {plantName: {_eq: "${this.plantname}"}}}) {
         access
