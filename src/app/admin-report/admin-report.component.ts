@@ -3,39 +3,35 @@ import { LogoutService } from '../logout.service';
 import { GraphQLClient } from 'graphql-request';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  selector: 'app-admin-report',
+  templateUrl: './admin-report.component.html',
+  styleUrls: ['./admin-report.component.css']
 })
-export class TableComponent implements OnInit {
+export class AdminReportComponent implements OnInit {
 
-  plantname = '';
-  data: any;
   reports: any;
-  constructor(public logout: LogoutService) { }
+  data: any;
+  constructor(public logout: LogoutService) {
+  }
 
   async ngOnInit() {
-    this.plantname = localStorage.getItem('plant');
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'
       },
     });
-    // FIXME: Add a check if the access is admin only or everyone
     const query = `query MyQuery {
-      rback(where: {access: {_eq: "plant"}, _and: {plantName: {_eq: "${this.plantname}"}}}) {
-        access
+      rback {
+        fileUrl
         dateOfReportWriting
         documentReferenceNumber
-        fileUrl
         plantName
-        reportName
         reportMonth
+        reportName
         reportby
       }
-    }
-    `;
+    }`;
     await client.request(query)
               .then(data => {
                 this.data = data;

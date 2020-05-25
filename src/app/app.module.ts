@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegisterComponent } from './register/register.component';
 import { ReportGenerationComponent } from './report-generation/report-generation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminReportComponent } from './admin-report/admin-report.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     PlantMainpageComponent,
     PageNotFoundComponent,
     RegisterComponent,
-    ReportGenerationComponent
+    ReportGenerationComponent,
+    AdminReportComponent
   ],
   imports: [
     BrowserModule,

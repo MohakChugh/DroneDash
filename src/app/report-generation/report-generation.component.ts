@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import * as axios from 'axios';
+import { HttpClient } from '@angular/common/http';
 import { GraphQLClient } from 'graphql-request';
 
 @Component({
@@ -78,12 +77,5 @@ export class ReportGenerationComponent implements OnInit {
     } else {
       alert('One or more forms fields are Empty!');
     }
-    // console.log(this.file);
-    // console.log(this.reportBy);
-    // console.log(this.reportMonth);
-    // console.log(this.reportName);
-    // console.log(this.documentReferenceNumber);
-    // console.log(this.plantName);
-    // console.log(this.dateOfReport);
   }
 }

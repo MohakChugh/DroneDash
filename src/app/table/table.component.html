@@ -9,82 +9,45 @@
               role="button"><span class="text-white text" (click)="logout.logout()">Logout</span></a></div>
         </nav>
         <div class="container-fluid">
-          <h3 class="text-dark mb-4">{{PLANTNAME}}</h3>
+          <h3 class="text-dark mb-4">{{plantname}}</h3>
           <div class="card shadow">
             <div class="card-header py-3">
-              <p class="text-primary m-0 font-weight-bold">{{PLANTNAME}}&nbsp; Plant Reports</p>
+              <p class="text-primary m-0 font-weight-bold">{{plantname}}&nbsp; Plant Reports</p>
             </div>
             <div class="card-body">
               <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                 <table class="table dataTable my-0" id="dataTable">
                   <thead>
                     <tr>
-                      <th>INFO 1</th>
-                      <th>INFO 2</th>
-                      <th>Info 3</th>
-                      <th>Info 4</th>
-                      <th>Info 4</th>
+                      <th>Report Name</th>
+                      <th>Report By</th>
+                      <th>Plant Name</th>
+                      <th>Report Month</th>
+                      <th>Document Reference Number</th>
+                      <th>Date of Report Writing</th>
                       <th>Report Link</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Random Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>2008/11/28</td>
-                      <td>Link</td>
-                    </tr>
-                    <tr>
-                      <td>Random Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>2008/11/28</td>
-                      <td>Link</td>
-                    </tr>
-                    <tr>
-                      <td>Random Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>2008/11/28</td>
-                      <td>Link</td>
-                    </tr>
-                    <tr>
-                      <td>Random Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>2008/11/28</td>
-                      <td>Link</td>
-                    </tr>
-                    <tr>
-                      <td>Random Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>2008/11/28</td>
-                      <td>Link</td>
-                    </tr>
-                    <tr>
-                      <td>Random Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>2008/11/28</td>
-                      <td>Link</td>
+                    <tr *ngFor="let report of reports">
+                      <td>{{report.reportName}}</td>
+                        <td>{{report.reportby}}</td>
+                        <td>{{report.plantName}}</td>
+                        <td>{{report.reportMonth}}</td>
+                        <td>{{report.documentReferenceNumber}}</td>
+                        <td>{{report.dateOfReportWriting}}</td>
+                        <td> <a href="{{report.fileUrl}}">CLICK HERE</a></td>
                     </tr>
                   </tbody>
                   <tfoot>
                     <tr>
-                      <td><strong>Name</strong></td>
-                      <td><strong>Position</strong></td>
-                      <td><strong>Office</strong></td>
-                      <td><strong>Age</strong></td>
-                      <td><strong>Start date</strong></td>
-                      <td><strong>Salary</strong></td>
+                      <td><strong>Report Name</strong></td>
+                      <td><strong>Report By</strong></td>
+                      <td><strong>Plant Name</strong></td>
+                      <td><strong>Report Month</strong></td>
+                      <td><strong>Document Reference Number</strong></td>
+                      <td><strong>Date of Report Writing</strong></td>
+                      <td><strong>Report Link</strong></td>
                     </tr>
                   </tfoot>
                 </table>

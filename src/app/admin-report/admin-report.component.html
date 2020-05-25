@@ -1,0 +1,63 @@
+<div id="page-top">
+    <div id="wrapper">
+      <app-header></app-header>
+      <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+          <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+            <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop"
+                type="button"><i class="fas fa-bars"></i></button><a class="btn btn-danger btn-icon-split"
+                role="button"><span class="text-white text" (click)="logout.logout()">Logout</span></a></div>
+          </nav>
+          <div class="container-fluid">
+            <h3 class="text-dark mb-4">PLANT NAME</h3>
+            <div class="card shadow">
+              <div class="card-header py-3">
+                <p class="text-primary m-0 font-weight-bold">PLANT NAME&nbsp; Plant Reports</p>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                  <table class="table dataTable my-0" id="dataTable">
+                    <thead>
+                      <tr>
+                        <th>Report Name</th>
+                        <th>Report By</th>
+                        <th>Plant Name</th>
+                        <th>Report Month</th>
+                        <th>Document Reference Number</th>
+                        <th>Date of Report Writing</th>
+                        <th>Report Link</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let report of reports">
+                        <td>{{report.reportName}}</td>
+                        <td>{{report.reportby}}</td>
+                        <td>{{report.plantName}}</td>
+                        <td>{{report.reportMonth}}</td>
+                        <td>{{report.documentReferenceNumber}}</td>
+                        <td>{{report.dateOfReportWriting}}</td>
+                        <td> <a href="{{report.fileUrl}}">CLICK HERE</a></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td><strong>Report Name</strong></td>
+                        <td><strong>Report By</strong></td>
+                        <td><strong>Plant Name</strong></td>
+                        <td><strong>Report Month</strong></td>
+                        <td><strong>Document Reference Number</strong></td>
+                        <td><strong>Date of Report Writing</strong></td>
+                        <td><strong>Report Link</strong></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-footer></app-footer>
+      </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+  </div>
+  

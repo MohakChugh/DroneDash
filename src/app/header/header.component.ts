@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
   isAdmin: any;
   dashboardLink: string;
   liveStreamLink: string;
+  report: string;
   constructor() { }
 
   ngOnInit(): void {
@@ -21,9 +22,11 @@ export class HeaderComponent implements OnInit {
     if (this.isAdmin) {
       this.dashboardLink = '/admindashboard';
       this.liveStreamLink = '/adminlivestream';
+      this.report = '/adminReport';
     } else {
       this.dashboardLink = '/plantmainpage';
       this.liveStreamLink = '/plantlivestream';
+      this.report = '/reports';
     }
   }
 
