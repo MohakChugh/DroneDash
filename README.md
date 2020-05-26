@@ -3,17 +3,22 @@
 ## Todo 
 - [x] Complete Authentication
 - [x] Only Let The Admin add new Users
-- [] Role Based Access for live Stream
-- [] Add Report System
-- [] Report Generated Flow System `(RBACK SYSTEM)`
+- [x] Role Based Access for live Stream
+- [x] Add Report System
+- [x] Report Generated Flow System `(RBACK SYSTEM)`
 - [] Notifications on Live Feed via Whatsapp
-- [] Check if livestream works when deployed to github pages
+- [x] Check if livestream works when deployed to github pages
+- [] Now fix dashboard, Clicking on the plant name should open its reports
+- [] A filter (by plant name) is required while seeing the reports
+- [] The mainpage should have some important data which should be shown in the main page of the dashboard
 
 ## Admin Usage
 - Credentials
+Omnipresent Admin
     1. Email : admin@admin.com
     2. Password : admin
 
+Mumbai Headquarter Admin
     3. Email: admin@mainbranch.com
     4. Password: mainbranch@123
 - Powers
