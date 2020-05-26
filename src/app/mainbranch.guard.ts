@@ -7,17 +7,16 @@ import { DataStoreService } from './data-store.service';
   providedIn: 'root'
 })
 export class MainbranchGuard implements CanActivate {
-  constructor(private dataStore: DataStoreService) {}
+  constructor(private dataStore: DataStoreService) { }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const isAuthenticated = this.dataStore.getDataStore('isAuth');
     const isMainBranch = this.dataStore.getDataStore('isMainBranch');
     if (!!isAuthenticated && !!isMainBranch) {
-        return true;
-      } else {
-        return false;
-      }
+      return true;
+    } else {
+      return false;
+    }
   }
-
 }

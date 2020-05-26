@@ -7,7 +7,7 @@ import { DataStoreService } from './data-store.service';
   providedIn: 'root'
 })
 export class AdminAuthGuard implements CanActivate {
-  constructor(private dataStore: DataStoreService) {}
+  constructor(private dataStore: DataStoreService) { }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

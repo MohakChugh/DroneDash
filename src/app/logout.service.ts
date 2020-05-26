@@ -12,6 +12,7 @@ export class LogoutService {
   logout() {
     this.dataStore.deleteDataStore('isAdmin');
     this.dataStore.deleteDataStore('isAuth');
+    this.dataStore.deleteDataStore('isMainBranch');
     this.router.navigateByUrl('login');
   }
 }
