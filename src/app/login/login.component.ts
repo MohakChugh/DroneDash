@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         console.log(response.data);
         if (response.data.error === false && !!response.data.token === true) {
           // Checking if the user is Admin
-          if (this.email !== 'admin@admin.com') {
+          if (this.email !== 'admin@admin.com' && this.email !== 'admin@mainbranch.com') {
             // If the user is not admin
             this.dataStore.setDataStore('isAuth', true);
 
@@ -39,6 +39,12 @@ export class LoginComponent implements OnInit {
 
             // Route the user to plant dashboard
             this.router.navigateByUrl('plantmainpage');
+          } else if (this.email === 'admin@mainbranch.com') {
+            /** If The user is the main branch admin */
+            this.dataStore.setDataStore('isAuth', true);
+            this.dataStore.setDataStore('isMainBranch', true);
+            // Route the admin to admin dashboard
+            this.router.navigateByUrl('dashboard');
           } else {
             // If the user is Admin
             this.dataStore.setDataStore('isAuth', true);

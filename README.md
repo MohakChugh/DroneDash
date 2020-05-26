@@ -13,6 +13,9 @@
 - Credentials
     1. Email : admin@admin.com
     2. Password : admin
+
+    3. Email: admin@mainbranch.com
+    4. Password: mainbranch@123
 - Powers
     1. Can register a new User
     2. Can perform activities according to the roleback system

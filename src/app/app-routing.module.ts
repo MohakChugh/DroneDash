@@ -12,14 +12,22 @@ import { BasicAuthGuard } from './basic-auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { ReportGenerationComponent } from './report-generation/report-generation.component';
 import { AdminReportComponent } from './admin-report/admin-report.component';
+import { MainbranchGuard } from './mainbranch.guard';
+import { MainBranchReportsComponent } from './main-branch-reports/main-branch-reports.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent, canActivate: [AdminAuthGuard] },
+
   { path: 'admindashboard', component: MainpageComponent, canActivate: [AdminAuthGuard] },
-  { path: 'adminlivestream', component: AdminLivestreamComponent /*, canActivate: [AdminAuthGuard] */},
+  { path: 'adminlivestream', component: AdminLivestreamComponent, canActivate: [AdminAuthGuard] },
   { path: 'adminReport', component: AdminReportComponent, canActivate: [AdminAuthGuard] },
+
+  { path: 'dashboard', component: MainpageComponent, canActivate: [MainbranchGuard] },
+  { path: 'mainBranchReports', component: MainBranchReportsComponent, canActivate: [MainbranchGuard] },
+  { path: 'livestream', component: AdminLivestreamComponent, canActivate: [MainbranchGuard] },
+
   { path: 'plantmainpage', component: PlantMainpageComponent, canActivate: [BasicAuthGuard] },
   { path: 'plantlivestream', component: LivestreamComponent, canActivate: [BasicAuthGuard] },
   { path: 'reports', component: TableComponent, canActivate: [BasicAuthGuard] },
