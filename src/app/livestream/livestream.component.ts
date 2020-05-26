@@ -1,6 +1,7 @@
 import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { LogoutService } from '../logout.service';
 import * as flvjs from 'flv.js';
+import { DataStoreService } from '../data-store.service';
 
 @Component({
   selector: 'app-livestream',
@@ -13,10 +14,11 @@ export class LivestreamComponent implements OnInit {
   CurrentDateandTime = new Date();
   liveStreamUrl = 'ws://35.222.157.43:8000/live/';
   liveStreamOn = false;
-  constructor(public logout: LogoutService) { }
+  constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
 
   ngOnInit(): void {
-    this.CompanyName = localStorage.getItem('plant');
+    this.CompanyName = this.dataStore.getDataStore('plant');
+
     this.CompanyName = this.CompanyName.toLowerCase();
     this.liveStreamUrl = this.liveStreamUrl + this.CompanyName + '.flv';
     console.log(this.liveStreamUrl);

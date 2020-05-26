@@ -81,21 +81,16 @@ export class AdminReportComponent implements OnInit {
         .subscribe(async res => {
           this.response = res;
           if (this.response.error === false) {
-            // console.log(this.response.Data[0].Location);
-
             // Update the new link and access to the database
             const query = `mutation MyMutation {
               update_rback(where: {id: {_eq: "${this.reports[i].id}"}}, _set: {access: "plant", fileUrl: "${this.response.Data[0].Location}"}) {
                 affected_rows
               }
-            }
-            `;
+            }`;
             const result = await this.sendGqlRequest(query);
             console.log(result);
             this.reports[i].showInput = false;
             this.reports[i].access = 'plant';
-            // alert(result);
-            // this.loading = false;
             this.reports[i].loading = false;
           }
         });

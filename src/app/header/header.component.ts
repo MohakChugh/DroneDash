@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStoreService } from '../data-store.service';
 
 @Component({
   selector: 'app-header',
@@ -11,14 +12,15 @@ export class HeaderComponent implements OnInit {
   dashboardLink: string;
   liveStreamLink: string;
   report: string;
-  constructor() { }
+  constructor(private dataStore: DataStoreService) { }
 
   ngOnInit(): void {
     this.checkIfAdmin();
   }
 
   checkIfAdmin() {
-    this.isAdmin = localStorage.getItem('isAdmin');
+    this.isAdmin = this.dataStore.getDataStore('isAdmin');
+
     if (this.isAdmin) {
       this.dashboardLink = '/admindashboard';
       this.liveStreamLink = '/adminlivestream';
