@@ -96,4 +96,7 @@ export class AdminReportComponent implements OnInit {
         });
 
   }
+  openUrl(url: string) {
+    window.open(url, '_blank');
+  }
 }

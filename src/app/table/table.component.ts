@@ -44,4 +44,7 @@ export class TableComponent implements OnInit {
               .catch((err) => err);
   }
 
+  openUrl(url: string) {
+    window.open(url, '_blank');
+  }
 }

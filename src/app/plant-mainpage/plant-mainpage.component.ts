@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogoutService } from '../logout.service';
+import { DataStoreService } from '../data-store.service';
 
 @Component({
   selector: 'app-plant-mainpage',
@@ -8,9 +9,11 @@ import { LogoutService } from '../logout.service';
 })
 export class PlantMainpageComponent implements OnInit {
 
-  constructor(public logout: LogoutService) { }
+  plantname: string;
+  constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
 
   ngOnInit(): void {
+    this.plantname = this.dataStore.getDataStore('plant');
   }
 
 }

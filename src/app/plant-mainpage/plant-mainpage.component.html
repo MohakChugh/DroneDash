@@ -10,16 +10,16 @@
         </nav>
         <div class="container-fluid">
           <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">Dashboard</h3><a [routerLink]="['/reportCreate']"
+            <h3 class="text-dark mb-0">Drone dashboard: {{plantname | titlecase}}</h3><a [routerLink]="['/reportCreate']"
               routerLinkActive="router-link-active" class="btn btn-primary btn-sm d-none d-sm-inline-block"
-              role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
+              role="button"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;(Remove it from here, and add it to pilot)Generate Report</a>
           </div>
           <div class="row">
             <div class="col-md-6 col-xl-3 mb-4">
               <div class="card shadow border-left-primary py-2">
-                <div class="card-body">
+                <div class="card-body" [routerLink]="['/reports']">
                   <div class="row align-items-center no-gutters">
-                    <div class="col mr-2">
+                    <div class="col mr-2" >
                       <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>DAHEJ PLANT</span>
                       </div>
                       <div class="text-dark font-weight-bold h5 mb-0"><span>Get Reports</span></div>
@@ -62,58 +62,6 @@
                     </div>
                   </li>
                 </ul>
-              </div>
-            </div>
-            <div class="col">
-              <div class="row">
-                <div class="col-lg-6 mb-4">
-                  <div class="card text-white bg-primary shadow">
-                    <div class="card-body">
-                      <p class="m-0">Primary</p>
-                      <p class="text-white-50 small m-0">#4e73df</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card text-white bg-success shadow">
-                    <div class="card-body">
-                      <p class="m-0">Success</p>
-                      <p class="text-white-50 small m-0">#1cc88a</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card text-white bg-info shadow">
-                    <div class="card-body">
-                      <p class="m-0">Info</p>
-                      <p class="text-white-50 small m-0">#36b9cc</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card text-white bg-warning shadow">
-                    <div class="card-body">
-                      <p class="m-0">Warning</p>
-                      <p class="text-white-50 small m-0">#f6c23e</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card text-white bg-danger shadow">
-                    <div class="card-body">
-                      <p class="m-0">Danger</p>
-                      <p class="text-white-50 small m-0">#e74a3b</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card text-white bg-secondary shadow">
-                    <div class="card-body">
-                      <p class="m-0">Secondary</p>
-                      <p class="text-white-50 small m-0">#858796</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
