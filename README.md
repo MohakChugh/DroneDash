@@ -16,7 +16,7 @@
 - Credentials
 Omnipresent Admin
     1. Email : admin@admin.com
-    2. Password : admin
+    2. Password : admin@123
 
 Mumbai Headquarter Admin
     3. Email: admin@mainbranch.com
