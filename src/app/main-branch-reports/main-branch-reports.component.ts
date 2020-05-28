@@ -44,7 +44,7 @@ export class MainBranchReportsComponent implements OnInit {
         this.reports = this.data.rback;
         console.log(this.reports);
       })
-      .catch((err) => err);
+      .catch(err => console.log(err));
   }
   // async sendGqlRequest(q: string) {
   //   const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {

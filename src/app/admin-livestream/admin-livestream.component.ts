@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LogoutService } from '../logout.service';
 import * as axios from 'axios';
 import * as flvjs from 'flv.js';
+import { GraphQLClient } from 'graphql-request';
 
 @Component({
   selector: 'app-admin-livestream',
@@ -13,28 +14,44 @@ export class AdminLivestreamComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   company_name = 'Hindalco';
   Time = new Date();
+  users = [];
   names = [];
   liveStreamBaseUrl = 'ws://35.222.157.43:8000/live/';
   urls = [];
   liveStreamOn = false;
   liveStreamUrl: string;
+  response: any;
   constructor(public logout: LogoutService) { }
 
-  ngOnInit(): void {
-    axios.default.get('https://omnipresent-dashboard-backend.herokuapp.com/getNames')
-      .then(response => {
-        if (response.data.error === false) {
-          this.names = response.data.response;
-          // tslint:disable-next-line: prefer-for-of
-          for (let i = 0; i < this.names.length; i++) {
-            this.urls.push(`${this.liveStreamBaseUrl}${this.names[i]}`);
-          }
-        }
+  async ngOnInit() {
+
+    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      headers: {
+        'content-type': 'application/json',
+        'x-hasura-admin-secret': 'omnipresent'
+      },
+    });
+    const query = `query MyQuery {
+      user(where: {role: {_eq: "plant"}}) {
+        name
+      }
+    }
+    `;
+    await client.request(query)
+      .then(data => {
+        this.response = data;
+        this.users = this.response.user;
+        // console.log(this.users);
+        this.users.forEach(element => {
+          this.names.push(element.name);
+        });
+        // console.log(this.names);
+        this.names.forEach(element => {
+          this.urls.push(`${this.liveStreamBaseUrl}${element}`);
+        });
+        // console.log(this.urls);
       })
-      .catch(err => {
-        console.log(err);
-        alert('An Error Occured while getting the livestreams! Please check the Console for details');
-      });
+      .catch(err => console.log(err));
   }
 
   async player(index) {
