@@ -14,13 +14,15 @@
         <div class="container">
           <div class="row">
             <div div class="col-xl-6" *ngFor="let name of names let i = index" [attr.data-index]="i">
-              <button class="btn btn-info" (click)="player(i)"> Click here to get The live stream of {{name | titlecase}} Plant</button>
-              <br><br><br>
+              <button class="alert alert-info" (click)="player(i)"> Click here or on the player to get The live stream of {{name | titlecase}} Plant</button>
+              <br>
+              {{name|titlecase}}
               <div *ngIf="!liveStreamOn" class="vplayer" data-v="" (click)="player(i)">
                 <div class="plybtn" (click)="player(i)"></div>
               </div>
               <video *ngIf="liveStreamOn" style="background-color: black;" id="videoElement{{i}}" width="100%">
               </video>
+              <br><br><br>
             </div>
           </div>
         </div>
