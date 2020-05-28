@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GraphQLClient } from 'graphql-request';
 import { DataStoreService } from '../data-store.service';
+import { LogoutService } from '../logout.service';
 
 @Component({
   selector: 'app-report-generation',
@@ -24,7 +25,7 @@ export class ReportGenerationComponent implements OnInit {
   loading = false;
 
   fileUploadUrl = 'https://omnipresent-dashboard-backend.herokuapp.com/upload';
-  constructor(private http: HttpClient, private dataStore: DataStoreService) { }
+  constructor(private http: HttpClient, private dataStore: DataStoreService, public logout: LogoutService) { }
 
   ngOnInit(): void {
     this.plantName = this.dataStore.getDataStore('plant');
