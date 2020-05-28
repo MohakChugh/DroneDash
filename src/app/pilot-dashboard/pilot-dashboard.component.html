@@ -11,7 +11,7 @@
         </nav>
         <div class="container-fluid">
           <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">Drone Dashboard: Pilot {{pilotName}}</h3><a [routerLink]="['/reportCreate']"
+            <h3 class="text-dark mb-0">Drone Dashboard: Pilot for {{pilotName}}</h3><a [routerLink]="['/reportCreate']"
               class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"><i
                 class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
           </div>
@@ -56,17 +56,17 @@
                 <div class="col">
                   <div class="card shadow-lg o-hidden border-0 my-5">
                     <div class="card-body p-0">
-                      <div class="row">
-                        <div class="col-lg-7 col-xl-12">
+                      <div class="row text-center">
+                        <div class="col-lg-12 col-xl-12">
                           <div class="p-5">
                             <div class="text-center"></div>
                             <form class="user">
-                                <h5 style="padding: 4px;">Send Message to Admin@Omnipresent</h5>
+                              <h5 style="padding: 4px;">Send Message to Admin@Omnipresent</h5>
                               <div class="form-group"><input class="form-control form-control-user" type="email"
                                   id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Message Here"
                                   name="email"></div>
                               <button class="btn btn-primary btn-block text-white btn-user" type="submit">
-                                  Send Message</button>
+                                Send Message</button>
                               <hr>
                             </form>
                           </div>
@@ -76,14 +76,10 @@
                   </div>
                 </div>
               </div>
-              <div *ngIf="isSent" class="alert alert-success" role="alert" style="margin-top: 8px;">
-                <span><strong>Sent&nbsp;</strong></span></div><button class="btn btn-primary" type="button"
-                style="width: 90px;height: 38px;margin: 12px;">Send</button>
             </div>
           </div>
         </div>
-      </div>
+      </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
       <app-footer></app-footer>
-    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
   </div>
-</div>
