@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminReportComponent } from './admin-report/admin-report.component';
 import { MainBranchReportsComponent } from './main-branch-reports/main-branch-reports.component';
 import { PilotDashboardComponent } from './pilot-dashboard/pilot-dashboard.component';
+import { ChatComponent } from './pilot-dashboard/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { PilotDashboardComponent } from './pilot-dashboard/pilot-dashboard.compo
     ReportGenerationComponent,
     AdminReportComponent,
     MainBranchReportsComponent,
-    PilotDashboardComponent
+    PilotDashboardComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
