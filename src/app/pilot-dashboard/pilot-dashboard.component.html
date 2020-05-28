@@ -4,16 +4,20 @@
     <div class="d-flex flex-column" id="content-wrapper">
       <div id="content">
         <nav class="navbar navbar-light navbar-expand bg-white text-right shadow mb-4 topbar static-top">
-          <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop"
-              type="button"><i class="fas fa-bars"></i></button>
+          <div class="container-fluid">
+            <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button">
+              <i class="fas fa-bars"></i>
+            </button>
             <a class="btn btn-danger btn-icon-split" role="button">
-              <span class="text-right text-white text" (click)="logout.logout()">Logout</span></a></div>
+              <span class="text-right text-white text" (click)="logout.logout()">Logout</span>
+            </a>
+          </div>
         </nav>
         <div class="container-fluid">
           <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">Drone Dashboard: Pilot for {{pilotName}}</h3><a [routerLink]="['/reportCreate']"
-              class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button"><i
-                class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
+            <h3 class="text-dark mb-0">Drone Dashboard: Pilot for {{pilotName}}</h3>
+            <a [routerLink]="['/reportCreate']" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button">
+              <i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
           </div>
           <div class="row">
             <div class="col-lg-6 mb-4">
@@ -50,8 +54,6 @@
               </div>
             </div>
             <div class="col">
-              <div class="row">
-              </div>
               <div class="row">
                 <div class="col">
                   <div class="card shadow-lg o-hidden border-0 my-5">
