@@ -1,5 +1,5 @@
 #!/bin/sh
 git pull origin master
-npm i
+# npm i
 ng build --prod
 sudo systemctl restart nginx
