@@ -18,6 +18,7 @@ import { ReportGenerationComponent } from './report-generation/report-generation
 import { HttpClientModule } from '@angular/common/http';
 import { AdminReportComponent } from './admin-report/admin-report.component';
 import { MainBranchReportsComponent } from './main-branch-reports/main-branch-reports.component';
+import { PilotDashboardComponent } from './pilot-dashboard/pilot-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MainBranchReportsComponent } from './main-branch-reports/main-branch-re
     RegisterComponent,
     ReportGenerationComponent,
     AdminReportComponent,
-    MainBranchReportsComponent
+    MainBranchReportsComponent,
+    PilotDashboardComponent
   ],
   imports: [
     BrowserModule,
