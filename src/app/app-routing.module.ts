@@ -20,9 +20,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent, canActivate: [AdminAuthGuard] },
 
-  { path: 'admindashboard', component: MainpageComponent, canActivate: [AdminAuthGuard] },
-  { path: 'adminlivestream', component: AdminLivestreamComponent, canActivate: [AdminAuthGuard] },
-  { path: 'adminReport', component: AdminReportComponent, canActivate: [AdminAuthGuard] },
+  { path: 'admindashboard', component: MainpageComponent/*, canActivate: [AdminAuthGuard]*/ },
+  { path: 'adminlivestream', component: AdminLivestreamComponent/*, canActivate: [AdminAuthGuard] */},
+  { path: 'adminReport', component: AdminReportComponent/*, canActivate: [AdminAuthGuard] */},
 
   { path: 'dashboard', component: MainpageComponent, canActivate: [MainbranchGuard] },
   { path: 'mainBranchReports', component: MainBranchReportsComponent, canActivate: [MainbranchGuard] },
