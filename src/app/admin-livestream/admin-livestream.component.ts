@@ -56,24 +56,24 @@ export class AdminLivestreamComponent implements OnInit {
 
   async player(index) {
     this.liveStreamUrl = this.urls[index];
-    setTimeout(() => {
-      this.liveStreamOn = true;
-    }, 2000);
-    if (flvjs.default.isSupported()) {
-      const element = 'videoElement' + index;
-      const videoElement = document.getElementById(element) as HTMLMediaElement;
-      const flvPlayer = await flvjs.default.createPlayer({
-        type: 'flv',
-        url: this.liveStreamUrl
-      });
-      await flvPlayer.attachMediaElement(videoElement);
-      await flvPlayer.load();
-      try {
-        await flvPlayer.play();
-      } catch (err) {
-        console.log(err);
-        alert('Error Occured! Stream is not working!');
+    this.liveStreamOn = true;
+    setTimeout(async () => {
+      if (flvjs.default.isSupported()) {
+        const element = 'videoElement' + index;
+        const videoElement = document.getElementById(element) as HTMLMediaElement;
+        const flvPlayer = await flvjs.default.createPlayer({
+          type: 'flv',
+          url: this.liveStreamUrl
+        });
+        await flvPlayer.attachMediaElement(videoElement);
+        await flvPlayer.load();
+        try {
+          await flvPlayer.play();
+        } catch (err) {
+          console.log(err);
+          alert('Error Occured! Stream is not working!');
+        }
       }
-    }
+    }, 1000);
   }
 }
