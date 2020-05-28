@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStoreService } from '../data-store.service';
+import { LogoutService } from '../logout.service';
 
 @Component({
   selector: 'app-pilot-dashboard',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PilotDashboardComponent implements OnInit {
 
-  constructor() { }
+  pilotName = '';
+  isSent = false;
+  constructor(private dataStore: DataStoreService, public logout: LogoutService) { }
 
   ngOnInit(): void {
+    this.pilotName = this.dataStore.getDataStore('plant');
   }
 
 }

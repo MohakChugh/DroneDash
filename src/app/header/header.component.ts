@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
 
   isAdmin: any;
   isMainBranch: any;
+  isPilot: any;
   dashboardLink: string;
   liveStreamLink: string;
   report: string;
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
   checkIfAdmin() {
     this.isAdmin = this.dataStore.getDataStore('isAdmin');
     this.isMainBranch = this.dataStore.getDataStore('isMainBranch');
+    this.isPilot = this.dataStore.getDataStore('isPilot');
     if (this.isAdmin) {
       this.dashboardLink = '/admindashboard';
       this.liveStreamLink = '/adminlivestream';
@@ -30,6 +32,9 @@ export class HeaderComponent implements OnInit {
       this.dashboardLink = '/dashboard';
       this.liveStreamLink = '/livestream';
       this.report = '/mainBranchReports';
+    } else if (this.isPilot) {
+      this.dashboardLink = '/pilotmainpage';
+      this.report = '/reportCreate';
     } else {
       this.dashboardLink = '/plantmainpage';
       this.liveStreamLink = '/plantlivestream';

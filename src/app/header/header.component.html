@@ -1,6 +1,7 @@
 <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
   <div class="container-fluid d-flex flex-column p-0">
-    <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" [routerLink]="[dashboardLink]">
+    <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
+      [routerLink]="[dashboardLink]">
       <div class="sidebar-brand-icon rotate-n-15"></div>
       <div class="sidebar-brand-text mx-3"><span>HINDALCO</span></div><img id="logo" src="assets/img/hindalcologo.jpeg">
     </a>
@@ -15,7 +16,7 @@
       <li *ngIf="isAdmin" class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/register']">
           <i class="fas fa-user-circle"></i><span>Add New plant</span></a>
       </li>
-      <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="[liveStreamLink]">
+      <li *ngIf="!isPilot" class="nav-item" role="presentation"><a class="nav-link" [routerLink]="[liveStreamLink]">
           <i class="fas fa-window-maximize"></i><span>Live Stream</span></a>
       </li>
     </ul>
