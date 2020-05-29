@@ -34,30 +34,29 @@
                 </div>
                 <ul class="list-group list-group-flush">
                 <!-- Todo List added -->
-                  <li class="list-group-item">
+                  <li *ngFor="let todo of todoList let i = index" [attr.data-index]="i" class="list-group-item">
                     <div class="row align-items-center no-gutters">
                       <div class="col mr-2">
-                        <h6 class="mb-0"><strong>Drone Livestream @ lapanga</strong></h6>
+                        <h6 class="mb-0"><strong>{{todo.text}}</strong></h6>
                       </div>
                       <div class="col-auto">
                         <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox"
-                            id="formCheck-1"><label class="custom-control-label" for="formCheck-1"></label></div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row align-items-center no-gutters">
-                      <div class="col mr-2">
-                        <h6 class="mb-0"><strong>Drone Livestream @ Dahej</strong></h6>
-                      </div>
-                      <div class="col-auto">
-                        <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox"
-                            id="formCheck-2"><label class="custom-control-label" for="formCheck-2"></label></div>
+                            id="formCheck-1">
+                            <!-- FIXME: Add feature to delete task -->
+                            <label (click)="deleteTask(todo.id)" class="custom-control-label" for="formCheck-1"></label>
+                            <!--  -->
+                          </div>
                       </div>
                     </div>
                   </li>
                 </ul>
+                <!-- Add input field here -->
               </div>
+              <input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Enter Task" [(ngModel)]="task">
+              <br>
+              <div *ngIf="taskAdded" class="alert alert-success alert-dismissible">Task Added</div>
+              <br>
+              <button class="btn btn-info" (click)="addTask()">Add Task</button>
             </div>
             <div class="col-lg-6 mb-4">
               <app-plant-chat></app-plant-chat>
