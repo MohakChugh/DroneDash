@@ -15,7 +15,7 @@
         </nav>
         <div class="container-fluid">
           <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">Drone Dashboard: Pilot for {{pilotName}}</h3>
+            <h3 class="text-dark mb-0">Drone Dashboard: Pilot for {{pilotName | titlecase}}</h3>
             <a [routerLink]="['/reportCreate']" class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button">
               <i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
           </div>

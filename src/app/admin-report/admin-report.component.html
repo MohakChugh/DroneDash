@@ -41,7 +41,7 @@
 
                       <!-- If the File is not validated yet -->
                       <td *ngIf="report.access === 'AdminOnly' && !report.showInput"><button class="alert alert-danger"
-                          (click)="changeAccess(i)">Not Validated</button></td>
+                          (click)="changeAccess(i)">Upload Validated File</button></td>
 
                           <!-- Upload the new validated file -->
                       <input *ngIf="report.showInput" class="alert alert-info" type="file"
