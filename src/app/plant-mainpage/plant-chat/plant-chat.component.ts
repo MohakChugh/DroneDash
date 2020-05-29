@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { DataStoreService } from 'src/app/data-store.service';
 import { GraphQLClient } from 'graphql-request';
+import { DataStoreService } from 'src/app/data-store.service';
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  selector: 'app-plant-chat',
+  templateUrl: './plant-chat.component.html',
+  styleUrls: ['./plant-chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class PlantChatComponent implements OnInit {
 
   message: string;
   plantName: string;
@@ -15,10 +15,8 @@ export class ChatComponent implements OnInit {
   constructor(private dataStore: DataStoreService) { }
 
   ngOnInit(): void {
-    this.plantName = this.dataStore.getDataStore('plant');
   }
 
-  // FIXME: Add a method to send the message to the omnipresent admin
   async sendMessage() {
     console.log(this.message);
     console.log(this.plantName);
@@ -29,7 +27,7 @@ export class ChatComponent implements OnInit {
       },
     });
     const query = `mutation MyMutation {
-      insert_message(objects: {by: "Pilot", message: "${this.message}", plant: "${this.plantName}"}) {
+      insert_message(objects: {by: "Plant", message: "${this.message}", plant: "${this.plantName}"}) {
         affected_rows
       }
     }`;
@@ -42,4 +40,5 @@ export class ChatComponent implements OnInit {
       })
       .catch(err => console.log(err));
   }
+
 }

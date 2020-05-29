@@ -14,8 +14,9 @@
               <div class="card shadow border-left-primary py-2">
                 <div class="card-body" [routerLink]="['/reports']">
                   <div class="row align-items-center no-gutters">
-                    <div class="col mr-2" >
-                      <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>{{plantname | titlecase}} PLANT</span>
+                    <div class="col mr-2">
+                      <div class="text-uppercase text-primary font-weight-bold text-xs mb-1">
+                        <span>{{plantname | titlecase}} PLANT</span>
                       </div>
                       <div class="text-dark font-weight-bold h5 mb-0"><span>Get Reports</span></div>
                     </div>
@@ -58,6 +59,9 @@
                   </li>
                 </ul>
               </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <app-plant-chat></app-plant-chat>
             </div>
           </div>
         </div>

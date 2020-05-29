@@ -20,6 +20,7 @@ import { AdminReportComponent } from './admin-report/admin-report.component';
 import { MainBranchReportsComponent } from './main-branch-reports/main-branch-reports.component';
 import { PilotDashboardComponent } from './pilot-dashboard/pilot-dashboard.component';
 import { ChatComponent } from './pilot-dashboard/chat/chat.component';
+import { PlantChatComponent } from './plant-mainpage/plant-chat/plant-chat.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ChatComponent } from './pilot-dashboard/chat/chat.component';
     AdminReportComponent,
     MainBranchReportsComponent,
     PilotDashboardComponent,
-    ChatComponent
+    ChatComponent,
+    PlantChatComponent
   ],
   imports: [
     BrowserModule,
