@@ -10,20 +10,8 @@
         </nav>
         <div class="container-fluid">
           <div class="row">
+            <h1>Drone Dashboard: Plant {{plantname | titlecase}}</h1>
             <div class="col-md-6 col-xl-3 mb-4">
-              <div class="card shadow border-left-primary py-2">
-                <div class="card-body" [routerLink]="['/reports']">
-                  <div class="row align-items-center no-gutters">
-                    <div class="col mr-2">
-                      <div class="text-uppercase text-primary font-weight-bold text-xs mb-1">
-                        <span>{{plantname | titlecase}} PLANT</span>
-                      </div>
-                      <div class="text-dark font-weight-bold h5 mb-0"><span>Get Reports</span></div>
-                    </div>
-                    <div class="col-auto"><i class="fas fa-book-open fa-2x text-gray-300"></i></div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           <div class="row">
