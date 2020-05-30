@@ -14,6 +14,9 @@ export class PilotDashboardComponent implements OnInit {
   isSent = false;
   res: any;
   todoList = [];
+
+  /** If mission status is start => means mission is currently not started yet, i.e. mission is currently stopped */
+  start: string;
   constructor(private dataStore: DataStoreService, public logout: LogoutService) { }
 
   async ngOnInit() {
@@ -30,13 +33,42 @@ export class PilotDashboardComponent implements OnInit {
         text
         id
       }
+
+      missionStatus(where: {plant: {_eq: "${this.pilotName}"}}) {
+        plant
+        status
+        id
+      }
     }`;
     await client.request(query)
       .then(data => {
         this.res = data;
         this.todoList = this.res.todoList;
+        this.start = this.res.missionStatus[0].status;
+        console.log(this.start);
       })
       .catch(err => console.log(err));
   }
 
+  async toggleTaskStatus() {
+    if (this.start === 'stop') { this.start = 'start'; }
+    else if (this.start === 'start') { this.start = 'stop'; }
+
+    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      headers: {
+        'content-type': 'application/json',
+        'x-hasura-admin-secret': 'omnipresent'
+      },
+    });
+    const query = `mutation MyMutation {
+      update_missionStatus(where: {plant: {_eq: "${this.pilotName}"}}, _set: {status: "${this.start}"}) {
+        affected_rows
+      }
+    }`;
+    await client.request(query)
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => console.log(err));
+  }
 }

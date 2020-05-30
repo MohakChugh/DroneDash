@@ -76,6 +76,7 @@ export class PlantMainpageComponent implements OnInit {
   }
 
   async deleteTask(id: any) {
+    console.log(id);
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
