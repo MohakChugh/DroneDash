@@ -36,10 +36,8 @@
                       <td>{{report.reportMonth}}</td>
                       <td>{{report.documentReferenceNumber}}</td>
                       <td>{{report.dateOfReportWriting}}</td>
-                      <td> 
-                        <!-- <a href="{{report.fileUrl}}" target="_blank"> -->
-                          <button (click)="openUrl(report.fileUrl)" class="btn btn-primary">Click Here</button>
-                        <!-- </a> -->
+                      <td>
+                        <button (click)="openUrl(report.fileUrl)" class="btn btn-primary">Click Here</button>
                       </td>
                     </tr>
                   </tbody>

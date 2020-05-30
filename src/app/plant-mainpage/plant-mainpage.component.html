@@ -21,7 +21,6 @@
                   <h6 class="text-primary font-weight-bold m-0">Todo List</h6>
                 </div>
                 <ul class="list-group list-group-flush">
-                <!-- Todo List added -->
                   <li *ngFor="let todo of todoList let i = index" [attr.data-index]="i" class="list-group-item">
                     <div class="row align-items-center no-gutters">
                       <div class="col mr-2">
@@ -30,14 +29,16 @@
                       <div class="col-auto">
                         <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox"
                             id="formCheck-{{i}}">
-                            <label (click)="deleteTask(todo.id)" class="custom-control-label" for="formCheck-{{i}}"></label>
-                          </div>
+                          <label (click)="deleteTask(todo.id)" class="custom-control-label"
+                            for="formCheck-{{i}}"></label>
+                        </div>
                       </div>
                     </div>
                   </li>
                 </ul>
               </div>
-              <input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Enter Task" [(ngModel)]="task">
+              <input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Enter Task"
+                [(ngModel)]="task">
               <br>
               <div *ngIf="taskAdded" class="alert alert-success alert-dismissible">Task Added</div>
               <button class="btn btn-info" (click)="addTask()">Add Task</button>
