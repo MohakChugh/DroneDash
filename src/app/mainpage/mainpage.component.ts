@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogoutService } from '../logout.service';
+import { GraphQLClient } from 'graphql-request';
+import { DataStoreService } from '../data-store.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -8,9 +10,32 @@ import { LogoutService } from '../logout.service';
 })
 export class MainpageComponent implements OnInit {
 
+  todoList = [];
+  res: any;
   constructor(public logout: LogoutService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      headers: {
+        'content-type': 'application/json',
+        'x-hasura-admin-secret': 'omnipresent'
+      },
+    });
+    const query = `query MyQuery {
+      todoList {
+        id
+        plant
+        text
+      }
+    }`;
+    await client.request(query)
+      .then(data => {
+        console.log(data);
+        this.res = data;
+        this.todoList = this.res.todoList;
+      })
+      .catch(err => console.log(err));
   }
+
 
 }
