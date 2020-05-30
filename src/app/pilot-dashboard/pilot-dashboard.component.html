@@ -27,10 +27,10 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <!-- TODO LIST -->
-                  <li class="list-group-item">
+                  <li *ngFor="let todo of todoList" class="list-group-item">
                     <div class="row align-items-center no-gutters">
                       <div class="col mr-2">
-                        <h6 class="mb-0"><strong>Drone Livestream @ lapanga</strong></h6>
+                        <h6 class="mb-0"><strong>{{todo.text}}</strong></h6>
                       </div>
                       <div class="col-auto">
                         <div class="custom-control custom-checkbox"><input class="custom-control-input" type="checkbox"
