@@ -15,6 +15,7 @@ export class PlantChatComponent implements OnInit {
   constructor(private dataStore: DataStoreService) { }
 
   ngOnInit(): void {
+    this.plantName = this.dataStore.getDataStore('plant');
   }
 
   async sendMessage() {
