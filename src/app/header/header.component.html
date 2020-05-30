@@ -16,6 +16,12 @@
       <li *ngIf="isAdmin" class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/register']">
           <i class="fas fa-user-circle"></i><span>Add New plant</span></a>
       </li>
+      <!-- <li *ngIf="isAdmin" class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/register']">
+          <i class="fas fa-user-circle"></i><span>Messages and Feedback</span></a>
+      </li>
+      <li *ngIf="isAdmin" class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/register']">
+          <i class="fas fa-user-circle"></i><span>Current Ongoing Missions</span></a>
+      </li> -->
       <li *ngIf="!isPilot" class="nav-item" role="presentation"><a class="nav-link" [routerLink]="[liveStreamLink]">
           <i class="fas fa-window-maximize"></i><span>Live Stream</span></a>
       </li>
