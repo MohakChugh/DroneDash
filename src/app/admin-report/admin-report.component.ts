@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LogoutService } from '../logout.service';
 import { GraphQLClient } from 'graphql-request';
 import { HttpClient } from '@angular/common/http';
+import { DataStoreService } from '../data-store.service';
 
 @Component({
   selector: 'app-admin-report',
@@ -17,7 +18,7 @@ export class AdminReportComponent implements OnInit {
   response: any;
   // location: string;
   loading = false;
-  constructor(public logout: LogoutService, private http: HttpClient) {
+  constructor(public logout: LogoutService, private http: HttpClient, private dataStore: DataStoreService) {
   }
 
   onSelectedFile(event) {
@@ -25,26 +26,47 @@ export class AdminReportComponent implements OnInit {
   }
 
   async ngOnInit() {
+
+    const plantChosen = this.dataStore.getDataStore('plantChosen');
+    let query = ``;
+    if (plantChosen) {
+      query = `query MyQuery {
+        rback(where: {plantName: {_eq: "${plantChosen}"}}) {
+          access
+          dateOfReportWriting
+          documentReferenceNumber
+          fileUrl
+          id
+          plantName
+          reportMonth
+          reportby
+          reportName
+        }
+      }
+      `;
+    } else {
+      query = `query MyQuery {
+        rback {
+          access
+          dateOfReportWriting
+          documentReferenceNumber
+          fileUrl
+          plantName
+          id
+          reportMonth
+          reportName
+          reportby
+        }
+      }`;
+    }
+
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'
       },
     });
-    const query = `query MyQuery {
-      rback {
-        access
-        dateOfReportWriting
-        documentReferenceNumber
-        fileUrl
-        plantName
-        id
-        reportMonth
-        reportName
-        reportby
-      }
-    }
-    `;
+
     await client.request(query)
       .then(data => {
         this.data = data;

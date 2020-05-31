@@ -16,6 +16,7 @@ import { AdminAuthGuard } from './admin-auth.guard';
 import { BasicAuthGuard } from './basic-auth.guard';
 import { MainbranchGuard } from './mainbranch.guard';
 import { PilotGuard } from './pilot.guard';
+import { AdminFeedbackTableComponent } from './admin-feedback-table/admin-feedback-table.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'adminlivestream', component: AdminLivestreamComponent/*, canActivate: [AdminAuthGuard] */},
   { path: 'adminReport', component: AdminReportComponent, canActivate: [AdminAuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AdminAuthGuard] },
+  { path: 'feedback', component: AdminFeedbackTableComponent, canActivate: [AdminAuthGuard] },
 
   /** MainBranch Routes */
   { path: 'dashboard', component: MainpageComponent, canActivate: [MainbranchGuard] },

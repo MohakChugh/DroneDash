@@ -13,21 +13,22 @@
             <h3 class="text-dark mb-0">Drone dashboard: Admin</h3>
           </div>
           <div class="row">
-            <div class="col-md-6 col-xl-3 mb-4">
-              <div class="card shadow border-left-primary py-2">
+            <!-- add ng for here -->
+            <div *ngFor="let plant of plants let i = index" [attr.data-index]="i" class="col-md-6 col-xl-3 mb-4">
+              <div class="card shadow border-left-primary py-2" (click)="plantChosen(plant.name)">
                 <div class="card-body">
                   <div class="row align-items-center no-gutters">
                     <div class="col mr-2">
                       <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Get Reports</span>
                       </div>
-                      <div class="text-dark font-weight-bold h5 mb-0"><span>DAHEJ PLANT</span></div>
+                      <div class="text-dark font-weight-bold h5 mb-0"><span>{{plant.name | titlecase}}</span></div>
                     </div>
                     <div class="col-auto"><i class="fas fa-book-open fa-2x text-gray-300"></i></div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-xl-3 mb-4">
+            <!-- <div class="col-md-6 col-xl-3 mb-4">
               <div class="card shadow border-left-success py-2">
                 <div class="card-body">
                   <div class="row align-items-center no-gutters">
@@ -72,7 +73,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="row">
             <div class="col-lg-6 mb-4">

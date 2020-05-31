@@ -42,4 +42,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  deleteSelectedPlant() {
+    this.dataStore.deleteDataStore('plantChosen');
+  }
 }
