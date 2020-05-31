@@ -26,7 +26,6 @@ export class AdminReportComponent implements OnInit {
   }
 
   async ngOnInit() {
-
     const plantChosen = this.dataStore.getDataStore('plantChosen');
     let query = ``;
     if (plantChosen) {

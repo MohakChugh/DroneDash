@@ -15,9 +15,15 @@ export class MainpageComponent implements OnInit {
   plants = [];
   clickedPlant: string;
   res: any;
+  adminName: string;
   constructor(public logout: LogoutService, private dataStore: DataStoreService, private router: Router) { }
 
   async ngOnInit() {
+    const isAdmin = this.dataStore.getDataStore('isAdmin');
+    const isMainBranch = this.dataStore.getDataStore('isMainBranch');
+    if (isAdmin) { this.adminName = 'Omnipresent'; }
+    if (isMainBranch) { this.adminName = 'Headquarters'; }
+
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
