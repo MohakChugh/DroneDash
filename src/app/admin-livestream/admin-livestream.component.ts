@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LogoutService } from '../logout.service';
-import * as axios from 'axios';
 import * as flvjs from 'flv.js';
 import { GraphQLClient } from 'graphql-request';
 

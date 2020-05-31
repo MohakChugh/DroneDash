@@ -18,7 +18,6 @@ export class ChatComponent implements OnInit {
     this.plantName = this.dataStore.getDataStore('plant');
   }
 
-  // FIXME: Add a method to send the message to the omnipresent admin
   async sendMessage() {
     console.log(this.message);
     console.log(this.plantName);

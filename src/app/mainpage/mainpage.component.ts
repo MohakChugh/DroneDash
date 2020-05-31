@@ -53,7 +53,6 @@ export class MainpageComponent implements OnInit {
 
   plantChosen(plantName: string) {
     this.dataStore.setDataStore('plantChosen', plantName);
-    // this.router.navigateByUrl('reports');
     const isAdmin = this.dataStore.getDataStore('isAdmin');
     const isMainBranch = this.dataStore.getDataStore('isMainBranch');
 

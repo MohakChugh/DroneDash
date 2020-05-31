@@ -93,9 +93,7 @@ export class AdminReportComponent implements OnInit {
   }
 
   async validate(i: number) {
-    // this.loading = true;
     this.reports[i].loading = true;
-    // Upload the new file to s3
     const formdata = new FormData();
     formdata.append('file', this.file);
     this.http.post('https://omnipresent-dashboard-backend.herokuapp.com/upload', formdata)

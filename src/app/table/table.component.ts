@@ -37,11 +37,11 @@ export class TableComponent implements OnInit {
     }
     `;
     await client.request(query)
-              .then(data => {
-                this.data = data;
-                this.reports = this.data.rback;
-              })
-              .catch((err) => err);
+      .then(data => {
+        this.data = data;
+        this.reports = this.data.rback;
+      })
+      .catch((err) => err);
   }
 
   openUrl(url: string) {
