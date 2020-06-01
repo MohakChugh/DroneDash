@@ -24,14 +24,15 @@ export class TableComponent implements OnInit {
       },
     });
     const query = `query MyQuery {
-      rback(where: {access: {_eq: "plant"}, _and: {plantName: {_eq: "${this.plantname}"}}}) {
+      rback(where: {_and: {access: {_eq: "plant"}, plantName: {_eq: "${this.plantname}"}}}, order_by: {dateOfReportWriting: desc}) {
         access
+        plantName
         dateOfReportWriting
         documentReferenceNumber
         fileUrl
-        plantName
-        reportName
+        id
         reportMonth
+        reportName
         reportby
       }
     }

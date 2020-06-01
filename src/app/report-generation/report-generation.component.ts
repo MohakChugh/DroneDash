@@ -56,6 +56,12 @@ export class ReportGenerationComponent implements OnInit {
               },
             });
 
+            this.plantName = this.plantName.toLowerCase();
+            this.reportBy = this.reportBy.toLowerCase();
+            this.reportMonth = this.reportMonth.toLowerCase();
+            this.reportName = this.reportName.toLowerCase();
+            this.location = this.location.toLowerCase();
+
             const query = `mutation MyMutation {
               insert_rback(objects: {
                 access: "AdminOnly",

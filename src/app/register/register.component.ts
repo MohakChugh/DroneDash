@@ -22,13 +22,20 @@ export class RegisterComponent implements OnInit {
 
   async register() {
     if (this.password !== this.repeatPassword) { alert('The Password and its Confirmation did not match! Please try again!'); }
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
-      headers: {
-        'content-type': 'application/json',
-        'x-hasura-admin-secret': 'omnipresent'
-      },
-    });
-    const query = `mutation MyMutation {
+    else {
+      const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+        headers: {
+          'content-type': 'application/json',
+          'x-hasura-admin-secret': 'omnipresent'
+        },
+      });
+
+      this.email = this.email.toLowerCase();
+      this.name = this.name.toLowerCase();
+      this.plantname = this.plantname.toLowerCase();
+      this.role = this.role.toLowerCase();
+
+      const query = `mutation MyMutation {
       insert_user(objects: {
         email: "${this.email}",
         name: "${this.name}",
@@ -40,8 +47,9 @@ export class RegisterComponent implements OnInit {
       }
     }
     `;
-    await client.request(query)
-      .then(data => { alert('User added successfully'); })
-      .catch((err) => err);
+      await client.request(query)
+        .then(data => { alert('User added successfully'); })
+        .catch((err) => err);
+    }
   }
 }

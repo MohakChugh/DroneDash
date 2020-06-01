@@ -22,15 +22,14 @@ export class AdminFeedbackTableComponent implements OnInit {
       },
     });
     const query = `query MyQuery {
-      message {
+      message(order_by: {timestamp: desc}) {
         by
         id
-        message
         plant
+        message
         timestamp
       }
-    }
-    `;
+    }`;
     await client.request(query)
       .then(data => {
         this.res = data;
@@ -59,15 +58,15 @@ export class AdminFeedbackTableComponent implements OnInit {
       .catch(err => console.log(err));
 
     query = `query MyQuery {
-        message {
-          by
-          id
-          message
-          plant
-          timestamp
-        }
+      message(order_by: {timestamp: desc}) {
+        by
+        id
+        plant
+        message
+        timestamp
       }
-      `;
+    }
+    `;
     await client.request(query)
       .then(data => {
         this.res = data;

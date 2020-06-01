@@ -30,7 +30,7 @@ export class AdminReportComponent implements OnInit {
     let query = ``;
     if (plantChosen) {
       query = `query MyQuery {
-        rback(where: {plantName: {_eq: "${plantChosen}"}}) {
+        rback(where: {plantName: {_eq: "${plantChosen}"}}, order_by: {dateOfReportWriting: desc}) {
           access
           dateOfReportWriting
           documentReferenceNumber
@@ -45,12 +45,12 @@ export class AdminReportComponent implements OnInit {
       `;
     } else {
       query = `query MyQuery {
-        rback {
+        rback(order_by: {dateOfReportWriting: desc}) {
           access
+          plantName
           dateOfReportWriting
           documentReferenceNumber
           fileUrl
-          plantName
           id
           reportMonth
           reportName

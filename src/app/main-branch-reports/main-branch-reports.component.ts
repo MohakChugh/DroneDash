@@ -24,7 +24,7 @@ export class MainBranchReportsComponent implements OnInit {
     let query = ``;
     if (plantChosen) {
       query = `query MyQuery {
-        rback(where: {_and: {plantName: {_eq: "${plantChosen}"}, access: {_eq: "plant"}}}) {
+        rback(where: {_and: {plantName: {_eq: "${plantChosen}"}, access: {_eq: "plant"}}}, order_by: {dateOfReportWriting: desc}) {
           access
           id
           plantName
