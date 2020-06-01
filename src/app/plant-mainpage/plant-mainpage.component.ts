@@ -63,6 +63,7 @@ export class PlantMainpageComponent implements OnInit {
 
     query = `query MyQuery {
       todoList(where: {plant: {_eq: "${this.plantname}"}}) {
+        id
         plant
         text
       }
@@ -96,6 +97,7 @@ export class PlantMainpageComponent implements OnInit {
 
     query = `query MyQuery {
       todoList(where: {plant: {_eq: "${this.plantname}"}}) {
+        id
         plant
         text
       }

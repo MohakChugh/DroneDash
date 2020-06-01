@@ -9,10 +9,10 @@
               role="button"><span class="text-white text" (click)="logout.logout()">Logout</span></a></div>
         </nav>
         <div class="container-fluid">
-          <h3 class="text-dark mb-4">{{plantname}}</h3>
+          <h3 class="text-dark mb-4">{{plantname | titlecase}}</h3>
           <div class="card shadow">
             <div class="card-header py-3">
-              <p class="text-primary m-0 font-weight-bold">{{plantname}}&nbsp; Plant Reports</p>
+              <p class="text-primary m-0 font-weight-bold">{{plantname | titlecase}}&nbsp; Plant Reports</p>
             </div>
             <div class="card-body">
               <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
