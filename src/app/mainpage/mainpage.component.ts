@@ -16,6 +16,7 @@ export class MainpageComponent implements OnInit {
   clickedPlant: string;
   res: any;
   adminName: string;
+  admin: string;
   constructor(public logout: LogoutService, private dataStore: DataStoreService, private router: Router) { }
 
   async ngOnInit() {
@@ -49,6 +50,8 @@ export class MainpageComponent implements OnInit {
         this.plants = this.res.user;
       })
       .catch(err => console.log(err));
+
+    if (isAdmin) { this.admin = isAdmin; }
   }
 
   plantChosen(plantName: string) {

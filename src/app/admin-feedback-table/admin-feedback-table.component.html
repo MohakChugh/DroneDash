@@ -23,6 +23,7 @@
                       <th>Message</th>
                       <th>Time</th>
                       <th>plant</th>
+                      <th>Delete Message</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -31,6 +32,7 @@
                       <td>{{message.message}}</td>
                       <td>{{message.timestamp | date:'medium' }}</td>
                       <td>{{message.plant | titlecase}}</td>
+                      <td> <button class="btn btn-danger" (click)="deleteMessage(message.id)">DELETE MESSAGE</button> </td>
                     </tr>
                   </tbody>
                   <tfoot>

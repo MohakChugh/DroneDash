@@ -39,4 +39,40 @@ export class AdminFeedbackTableComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
+  async deleteMessage(id) {
+    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      headers: {
+        'content-type': 'application/json',
+        'x-hasura-admin-secret': 'omnipresent'
+      },
+    });
+    let query = `mutation MyMutation {
+      delete_message(where: {id: {_eq: "${id}"}}) {
+        affected_rows
+      }
+    }`;
+    await client.request(query)
+      .then(data => {
+        this.res = data;
+        this.messages = this.res.message;
+      })
+      .catch(err => console.log(err));
+
+    query = `query MyQuery {
+        message {
+          by
+          id
+          message
+          plant
+          timestamp
+        }
+      }
+      `;
+    await client.request(query)
+      .then(data => {
+        this.res = data;
+        this.messages = this.res.message;
+      })
+      .catch(err => console.log(err));
+  }
 }
