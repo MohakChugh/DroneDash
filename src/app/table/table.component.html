@@ -30,10 +30,10 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let report of reports">
-                      <td>{{report.reportName}}</td>
-                      <td>{{report.reportby}}</td>
-                      <td>{{report.plantName}}</td>
-                      <td>{{report.reportMonth}}</td>
+                      <td>{{report.reportName | titlecase}}</td>
+                      <td>{{report.reportby | titlecase}}</td>
+                      <td>{{report.plantName | titlecase}}</td>
+                      <td>{{report.reportMonth | titlecase}}</td>
                       <td>{{report.documentReferenceNumber}}</td>
                       <td>{{report.dateOfReportWriting}}</td>
                       <td>
