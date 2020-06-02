@@ -64,8 +64,10 @@ export class MainBranchReportsComponent implements OnInit {
       .then(data => {
         this.data = data;
         this.reports = this.data.rback;
-        console.log(this.reports);
       })
       .catch(err => console.log(err));
+  }
+  openUrl(url: string) {
+    window.open(url, '_blank');
   }
 }

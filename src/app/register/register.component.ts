@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GraphQLClient } from 'graphql-request';
-// import * as axios from 'axios';
 
 @Component({
   selector: 'app-register',

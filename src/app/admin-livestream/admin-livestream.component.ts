@@ -40,15 +40,12 @@ export class AdminLivestreamComponent implements OnInit {
       .then(data => {
         this.response = data;
         this.users = this.response.user;
-        // console.log(this.users);
         this.users.forEach(element => {
           this.names.push(element.name);
         });
-        // console.log(this.names);
         this.names.forEach(element => {
           this.urls.push(`${this.liveStreamBaseUrl}${element}`);
         });
-        // console.log(this.urls);
       })
       .catch(err => console.log(err));
   }
@@ -69,7 +66,6 @@ export class AdminLivestreamComponent implements OnInit {
         try {
           await flvPlayer.play();
         } catch (err) {
-          console.log(err);
           alert('Error Occured! Stream is not working!');
         }
       }

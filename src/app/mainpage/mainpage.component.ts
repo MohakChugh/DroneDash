@@ -44,7 +44,6 @@ export class MainpageComponent implements OnInit {
     }`;
     await client.request(query)
       .then(data => {
-        console.log(data);
         this.res = data;
         this.todoList = this.res.todoList;
         this.plants = this.res.user;

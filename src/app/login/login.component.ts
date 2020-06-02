@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
       .then(data => data)
       .catch((err) => err);
     this.response = result;
-    console.log(this.response);
     if (this.response.user.length === 1 && this.response.user[0].password === this.password) {
       this.loading = false;
       // Set Authenticated = true
@@ -51,7 +50,6 @@ export class LoginComponent implements OnInit {
       // If user is Omnipresent Admin
       if (this.response.user[0].role === 'admin') {
         this.dataStore.setDataStore('isAdmin', true);
-        console.log('USER IS ADMIN');
 
         // Route the admin to admin dashboard
         this.router.navigateByUrl('admindashboard');
@@ -59,14 +57,12 @@ export class LoginComponent implements OnInit {
       // If user is MainBranch Admin
       else if (this.response.user[0].role === 'semiadmin') {
         this.dataStore.setDataStore('isMainBranch', true);
-        console.log('USER IS HEADQUARTERS ADMIN');
         // Route the admin to admin dashboard
         this.router.navigateByUrl('dashboard');
       }
       // If user is Pilot
       else if (this.response.user[0].role === 'pilot') {
         this.dataStore.setDataStore('isPilot', true);
-        console.log('USER IS PILOT');
         // fetch the plant name
         const plant = this.response.user[0].plant;
         this.dataStore.setDataStore('plant', plant);
@@ -77,8 +73,6 @@ export class LoginComponent implements OnInit {
         // fetch the plant name
         const plant = this.response.user[0].plant;
         this.dataStore.setDataStore('plant', plant);
-        console.log('USER IS PLANT');
-
         // Route the user to plant dashboard
         this.router.navigateByUrl('plantmainpage');
       }

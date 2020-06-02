@@ -19,8 +19,6 @@ export class ChatComponent implements OnInit {
   }
 
   async sendMessage() {
-    console.log(this.message);
-    console.log(this.plantName);
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',

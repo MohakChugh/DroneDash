@@ -37,7 +37,7 @@
                       <td>{{report.reportMonth | titlecase}}</td>
                       <td>{{report.documentReferenceNumber}}</td>
                       <td>{{report.dateOfReportWriting}}</td>
-                      <td> <a href="{{report.fileUrl}}">CLICK HERE</a></td>
+                      <td> <button (click)="openUrl(report.fileUrl)" class="btn btn-primary">CLICK HERE</button></td>
                     </tr>
                   </tbody>
                   <tfoot>

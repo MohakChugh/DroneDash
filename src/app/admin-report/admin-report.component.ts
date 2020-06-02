@@ -70,7 +70,6 @@ export class AdminReportComponent implements OnInit {
       .then(data => {
         this.data = data;
         this.reports = this.data.rback;
-        console.log(this.reports);
       })
       .catch((err) => err);
   }
@@ -107,7 +106,6 @@ export class AdminReportComponent implements OnInit {
               }
             }`;
           const result = await this.sendGqlRequest(query);
-          console.log(result);
           this.reports[i].showInput = false;
           this.reports[i].access = 'plant';
           this.reports[i].loading = false;

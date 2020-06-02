@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
       this.report = '/mainBranchReports';
     } else if (this.isPilot) {
       this.dashboardLink = '/pilotmainpage';
-      this.report = '/reportCreate';
+      this.report = '/reports';
     } else {
       this.dashboardLink = '/plantmainpage';
       this.liveStreamLink = '/plantlivestream';

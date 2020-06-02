@@ -45,7 +45,6 @@ export class PilotDashboardComponent implements OnInit {
         this.res = data;
         this.todoList = this.res.todoList;
         this.start = this.res.missionStatus[0].status;
-        console.log(this.start);
       })
       .catch(err => console.log(err));
   }
@@ -66,9 +65,7 @@ export class PilotDashboardComponent implements OnInit {
       }
     }`;
     await client.request(query)
-      .then(data => {
-        console.log(data);
-      })
+      .then(data => { })
       .catch(err => console.log(err));
   }
 }
