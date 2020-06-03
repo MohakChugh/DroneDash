@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { GraphQLClient } from 'graphql-request';
 import { DataStoreService } from '../data-store.service';
 import { LogoutService } from '../logout.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report-generation',
@@ -25,7 +26,7 @@ export class ReportGenerationComponent implements OnInit {
   loading = false;
 
   fileUploadUrl = 'https://omnipresent-dashboard-backend.herokuapp.com/upload';
-  constructor(private http: HttpClient, private dataStore: DataStoreService, public logout: LogoutService) { }
+  constructor(private http: HttpClient, private dataStore: DataStoreService, public logout: LogoutService, private router: Router) { }
 
   ngOnInit(): void {
     this.plantName = this.dataStore.getDataStore('plant');
@@ -36,12 +37,7 @@ export class ReportGenerationComponent implements OnInit {
   }
 
   upload() {
-    const plantname = this.plantName;
-    const reportby = this.reportBy;
-    const reportMonth = this.reportMonth;
-    const reportName = this.reportName;
-    const documentReferenceNumber = this.documentReferenceNumber;
-    const dateOfReport = this.dateOfReport;
+
 
     this.loading = true;
     /* Check if all the form item fields are filled or not */
@@ -69,7 +65,21 @@ export class ReportGenerationComponent implements OnInit {
             this.reportName = this.reportName.toLowerCase();
             this.location = this.location.toLowerCase();
 
+            const plantname = this.plantName;
+            const reportby = this.reportBy;
+            const reportMonth = this.reportMonth;
+            const reportName = this.reportName;
+            const documentReferenceNumber = this.documentReferenceNumber;
+            const dateOfReport = this.dateOfReport;
             const location = this.location;
+
+            // console.log(this.plantName)
+            // console.log(this.reportBy)
+            // console.log(this.reportMonth)
+            // console.log(this.reportName)
+            // console.log(this.location)
+            // console.log(this.documentReferenceNumber)
+            // console.log(this.dateOfReport)
 
             const query = `mutation MyMutation {
               insert_rback(objects: {
@@ -92,11 +102,11 @@ export class ReportGenerationComponent implements OnInit {
               .then(data => {
                 this.loading = false;
                 alert('Uploaded!');
+                this.router.navigateByUrl('reportCreate');
               })
               .catch((err) => err);
           }
         });
-      formdata.delete('file');
     } else {
       this.loading = false;
       alert('One or more forms fields are Empty!');
