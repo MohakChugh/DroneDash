@@ -96,6 +96,7 @@ export class ReportGenerationComponent implements OnInit {
               .catch((err) => err);
           }
         });
+      formdata.delete('file');
     } else {
       this.loading = false;
       alert('One or more forms fields are Empty!');
