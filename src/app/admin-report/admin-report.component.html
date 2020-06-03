@@ -56,6 +56,7 @@
 
                       <!-- If the file is validated -->
                       <td *ngIf="report.access === 'plant'"><button class="alert alert-success">Validated</button></td>
+                      <td><span class="btn btn-danger" (click)="deleteReport(report.id)">Delete Report</span></td>
                     </tr>
                   </tbody>
                   <tfoot>
