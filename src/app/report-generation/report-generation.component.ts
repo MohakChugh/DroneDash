@@ -36,6 +36,13 @@ export class ReportGenerationComponent implements OnInit {
   }
 
   upload() {
+    const plantname = this.plantName;
+    const reportby = this.reportBy;
+    const reportMonth = this.reportMonth;
+    const reportName = this.reportName;
+    const documentReferenceNumber = this.documentReferenceNumber;
+    const dateOfReport = this.dateOfReport;
+
     this.loading = true;
     /* Check if all the form item fields are filled or not */
     // tslint:disable-next-line: max-line-length
@@ -62,16 +69,18 @@ export class ReportGenerationComponent implements OnInit {
             this.reportName = this.reportName.toLowerCase();
             this.location = this.location.toLowerCase();
 
+            const location = this.location;
+
             const query = `mutation MyMutation {
               insert_rback(objects: {
                 access: "AdminOnly",
-                dateOfReportWriting: "${this.dateOfReport}",
-                documentReferenceNumber: "${this.documentReferenceNumber}",
-                plantName: "${this.plantName}",
-                reportMonth: "${this.reportMonth}",
-                reportName: "${this.reportName}",
-                reportby: "${this.reportBy}",
-                fileUrl: "${this.location}"
+                dateOfReportWriting: "${dateOfReport}",
+                documentReferenceNumber: "${documentReferenceNumber}",
+                plantName: "${plantname}",
+                reportMonth: "${reportMonth}",
+                reportName: "${reportName}",
+                reportby: "${reportby}",
+                fileUrl: "${location}"
               }) {
                 returning {
                   id
