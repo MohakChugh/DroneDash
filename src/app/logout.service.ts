@@ -14,6 +14,8 @@ export class LogoutService {
     this.dataStore.deleteDataStore('isAuth');
     this.dataStore.deleteDataStore('isPilot');
     this.dataStore.deleteDataStore('isMainBranch');
+    this.dataStore.deleteDataStore('plantChosen');
+    this.dataStore.deleteDataStore('plant');
     this.router.navigateByUrl('login');
   }
 }
