@@ -118,40 +118,43 @@ export class AdminReportComponent implements OnInit {
   }
 
   async deleteReport(id: any) {
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
-      headers: {
-        'content-type': 'application/json',
-        'x-hasura-admin-secret': 'omnipresent'
-      },
-    });
-    let query = `mutation MyMutation {
-      delete_rback(where: {id: {_eq: "${id}"}}) {
-        affected_rows
-      }
-    }`;
-    await client.request(query)
-      .then(data => data)
-      .catch((err) => err);
-
-    query = `query MyQuery {
-        rback(order_by: {dateOfReportWriting: desc}) {
-          access
-          plantName
-          dateOfReportWriting
-          documentReferenceNumber
-          fileUrl
-          id
-          reportMonth
-          reportName
-          reportby
+    const result = confirm('Are you sure you want to delete this file?');
+    if (result) {
+      const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+        headers: {
+          'content-type': 'application/json',
+          'x-hasura-admin-secret': 'omnipresent'
+        },
+      });
+      let query = `mutation MyMutation {
+        delete_rback(where: {id: {_eq: "${id}"}}) {
+          affected_rows
         }
       }`;
+      await client.request(query)
+        .then(data => data)
+        .catch((err) => err);
 
-    await client.request(query)
-      .then(data => {
-        this.data = data;
-        this.reports = this.data.rback;
-      })
-      .catch((err) => err);
+      query = `query MyQuery {
+          rback(order_by: {dateOfReportWriting: desc}) {
+            access
+            plantName
+            dateOfReportWriting
+            documentReferenceNumber
+            fileUrl
+            id
+            reportMonth
+            reportName
+            reportby
+          }
+        }`;
+
+      await client.request(query)
+        .then(data => {
+          this.data = data;
+          this.reports = this.data.rback;
+        })
+        .catch((err) => err);
+    }
   }
 }
