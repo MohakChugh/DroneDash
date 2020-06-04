@@ -10,8 +10,8 @@ export class LogoutService {
 
   constructor(private router: Router, private dataStore: DataStoreService) { }
   logout() {
-    this.dataStore.deleteDataStore('isAdmin');
     this.dataStore.deleteDataStore('isAuth');
+    this.dataStore.deleteDataStore('isAdmin');
     this.dataStore.deleteDataStore('isPilot');
     this.dataStore.deleteDataStore('isMainBranch');
     this.dataStore.deleteDataStore('plantChosen');
