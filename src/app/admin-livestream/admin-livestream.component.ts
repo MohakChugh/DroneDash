@@ -20,6 +20,7 @@ export class AdminLivestreamComponent implements OnInit {
   liveStreamOn = false;
   liveStreamUrl: string;
   response: any;
+  status = [];
   constructor(public logout: LogoutService) { }
 
   async ngOnInit() {
@@ -33,15 +34,18 @@ export class AdminLivestreamComponent implements OnInit {
     const query = `query MyQuery {
       user(where: {role: {_eq: "plant"}}) {
         name
+        user_to_missionStatus {
+          status
+        }
       }
-    }
-    `;
+    }`;
     await client.request(query)
       .then(data => {
         this.response = data;
         this.users = this.response.user;
         this.users.forEach(element => {
           this.names.push(element.name);
+          this.status.push(element.user_to_missionStatus[0].status);
         });
         this.names.forEach(element => {
           this.urls.push(`${this.liveStreamBaseUrl}${element}`);
