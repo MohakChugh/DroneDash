@@ -31,7 +31,7 @@ export class LivestreamComponent implements OnInit {
       },
     });
     const query = `query MyQuery {
-      missionStatus(where: {plant: {_eq: "lapanga"}}) {
+      missionStatus(where: {plant: {_eq: "${this.CompanyName}"}}) {
         status
       }
     }`;
