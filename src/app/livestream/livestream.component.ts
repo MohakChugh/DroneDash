@@ -2,6 +2,7 @@ import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { LogoutService } from '../logout.service';
 import * as flvjs from 'flv.js';
 import { DataStoreService } from '../data-store.service';
+import { GraphQLClient } from 'graphql-request';
 
 @Component({
   selector: 'app-livestream',
@@ -14,14 +15,32 @@ export class LivestreamComponent implements OnInit {
   CurrentDateandTime = new Date();
   liveStreamUrl = 'ws://35.222.157.43:8000/live/';
   liveStreamOn = false;
+  res: any;
+  missionStatus: string;
   constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.CompanyName = this.dataStore.getDataStore('plant');
 
     this.CompanyName = this.CompanyName.toLowerCase();
     this.liveStreamUrl = this.liveStreamUrl + this.CompanyName + '.flv';
-    console.log(this.liveStreamUrl);
+    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      headers: {
+        'content-type': 'application/json',
+        'x-hasura-admin-secret': 'omnipresent'
+      },
+    });
+    const query = `query MyQuery {
+      missionStatus(where: {plant: {_eq: "lapanga"}}) {
+        status
+      }
+    }`;
+    await client.request(query)
+      .then(data => {
+        this.res = data;
+        this.missionStatus = this.res.missionStatus[0].status;
+      })
+      .catch(err => console.log(err));
   }
 
   async player() {

@@ -11,7 +11,13 @@
         <div class="container-fluid">
           <h1>Live Stream</h1>
         </div>
-        <div class="container">
+        
+        <div class="container" style="text-align: center;">
+          <div>
+            <button *ngIf="missionStatus === 'start'" class="btn btn-success" disabled> <i class="fas fa-bullseye"></i> DRONE IS CURRENTLY FLYING</button>
+            <button *ngIf="missionStatus === 'stop'" class="btn btn-danger" disabled> <i class="fas fa-bullseye"></i> DRONE IS CURRENTLY NOT FLYING</button>
+          </div>
+          <br>
           <div style="background-color: black;" (click)="player()">
             <div *ngIf="!liveStreamOn" class="alert alert-dark" style="text-align: center;"> CLICK ANYWHERE ON THE
               PLAYER TO PLAY </div>
