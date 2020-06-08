@@ -18,10 +18,12 @@ import { MainbranchGuard } from './mainbranch.guard';
 import { PilotGuard } from './pilot.guard';
 import { AdminFeedbackTableComponent } from './admin-feedback-table/admin-feedback-table.component';
 import { AdminChangePasswordComponent } from './admin-change-password/admin-change-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'password', component: ChangePasswordComponent, canActivate: [BasicAuthGuard] },
 
   /** Admin Routes */
   { path: 'admindashboard', component: MainpageComponent, canActivate: [AdminAuthGuard] },

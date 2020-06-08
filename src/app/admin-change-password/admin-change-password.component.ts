@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GraphQLClient } from 'graphql-request';
+import { LogoutService } from '../logout.service';
 
 @Component({
   selector: 'app-admin-change-password',
@@ -13,7 +14,7 @@ export class AdminChangePasswordComponent implements OnInit {
   confirmPassword: string;
   plants = [];
   res: any;
-  constructor() { }
+  constructor(public logout: LogoutService) { }
 
   async ngOnInit() {
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
