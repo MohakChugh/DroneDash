@@ -22,8 +22,8 @@ export class MainpageComponent implements OnInit {
   async ngOnInit() {
     const isAdmin = this.dataStore.getDataStore('isAdmin');
     const isMainBranch = this.dataStore.getDataStore('isMainBranch');
-    if (isAdmin) { this.adminName = 'Omnipresent'; }
-    if (isMainBranch) { this.adminName = 'Headquarters'; }
+    if (isAdmin) { this.adminName = 'Omnipresent Admin'; }
+    if (isMainBranch) { this.adminName = 'Hindalco Headquarters'; }
 
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {

@@ -10,7 +10,7 @@
         </nav>
         <div class="container-fluid">
           <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">Drone dashboard: Admin {{adminName | titlecase}}</h3>
+            <h3 class="text-dark mb-0">Drone dashboard: {{adminName | titlecase}}</h3>
           </div>
           <div class="row">
             <div *ngFor="let plant of plants let i = index" [attr.data-index]="i" class="col-md-6 col-xl-3 mb-4">
