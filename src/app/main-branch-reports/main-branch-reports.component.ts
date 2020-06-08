@@ -39,7 +39,7 @@ export class MainBranchReportsComponent implements OnInit {
       `;
     } else {
       query = `query MyQuery {
-        rback(where: {access: {_eq: "plant"}}) {
+        rback(where: {access: {_eq: "plant"}}, order_by: {dateOfReportWriting: desc}) {
           access
           dateOfReportWriting
           documentReferenceNumber
