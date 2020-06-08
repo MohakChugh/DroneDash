@@ -19,6 +19,7 @@ import { PilotGuard } from './pilot.guard';
 import { AdminFeedbackTableComponent } from './admin-feedback-table/admin-feedback-table.component';
 import { AdminChangePasswordComponent } from './admin-change-password/admin-change-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -32,20 +33,25 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [AdminAuthGuard] },
   { path: 'feedback', component: AdminFeedbackTableComponent, canActivate: [AdminAuthGuard] },
   { path: 'changePassword', component: AdminChangePasswordComponent, canActivate: [AdminAuthGuard] },
+  { path: 'Adminschedule', component: ScheduleComponent, canActivate: [AdminAuthGuard] },
 
   /** MainBranch Routes */
   { path: 'dashboard', component: MainpageComponent, canActivate: [MainbranchGuard] },
   { path: 'mainBranchReports', component: MainBranchReportsComponent, canActivate: [MainbranchGuard] },
   { path: 'livestream', component: AdminLivestreamComponent, canActivate: [MainbranchGuard] },
+  { path: 'schedule', component: ScheduleComponent, canActivate: [MainbranchGuard] },
 
   /** Plant Routes */
   { path: 'plantmainpage', component: PlantMainpageComponent, canActivate: [BasicAuthGuard] },
   { path: 'plantlivestream', component: LivestreamComponent, canActivate: [BasicAuthGuard] },
   { path: 'reports', component: TableComponent, canActivate: [BasicAuthGuard] },
+  { path: 'plantschedule', component: ScheduleComponent, canActivate: [BasicAuthGuard] },
 
   /** Pilot Routes */
   { path: 'pilotmainpage', component: PilotDashboardComponent, canActivate: [PilotGuard]},
   { path: 'reportCreate', component: ReportGenerationComponent, canActivate: [PilotGuard] },
+  { path: 'pilotSchedule', component: ScheduleComponent, canActivate: [PilotGuard] },
+
   { path: '**', component: PageNotFoundComponent }
 ];
 

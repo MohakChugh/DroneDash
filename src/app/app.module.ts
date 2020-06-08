@@ -25,6 +25,7 @@ import { AdminFeedbackTableComponent } from './admin-feedback-table/admin-feedba
 import { OnGoingMissionsComponent } from './mainpage/on-going-missions/on-going-missions.component';
 import { AdminChangePasswordComponent } from './admin-change-password/admin-change-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     AdminFeedbackTableComponent,
     OnGoingMissionsComponent,
     AdminChangePasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
