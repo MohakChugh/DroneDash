@@ -23,6 +23,7 @@ import { ChatComponent } from './pilot-dashboard/chat/chat.component';
 import { PlantChatComponent } from './plant-mainpage/plant-chat/plant-chat.component';
 import { AdminFeedbackTableComponent } from './admin-feedback-table/admin-feedback-table.component';
 import { OnGoingMissionsComponent } from './mainpage/on-going-missions/on-going-missions.component';
+import { AdminChangePasswordComponent } from './admin-change-password/admin-change-password.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { OnGoingMissionsComponent } from './mainpage/on-going-missions/on-going-
     ChatComponent,
     PlantChatComponent,
     AdminFeedbackTableComponent,
-    OnGoingMissionsComponent
+    OnGoingMissionsComponent,
+    AdminChangePasswordComponent
   ],
   imports: [
     BrowserModule,
