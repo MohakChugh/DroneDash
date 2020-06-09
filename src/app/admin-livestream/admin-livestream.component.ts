@@ -13,11 +13,11 @@ export class AdminLivestreamComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   company_name = 'Hindalco';
   Time = new Date();
-  users = [];
-  names = [];
+  users: any = [];
+  names: any = [];
   liveStreamBaseUrl = 'ws://35.222.157.43:8000/live/';
-  urls = [];
-  liveStreamOn = false;
+  urls: any = [];
+  liveStreamOn = [];
   liveStreamUrl: string;
   response: any;
   status = [];
@@ -46,6 +46,7 @@ export class AdminLivestreamComponent implements OnInit {
         this.users.forEach(element => {
           this.names.push(element.name);
           this.status.push(element.user_to_missionStatus[0].status);
+          this.liveStreamOn.push(false);
         });
         this.names.forEach(element => {
           this.urls.push(`${this.liveStreamBaseUrl}${element}`);
@@ -56,7 +57,8 @@ export class AdminLivestreamComponent implements OnInit {
 
   async player(index) {
     this.liveStreamUrl = this.urls[index];
-    this.liveStreamOn = true;
+    // this.liveStreamOn = true;
+    this.liveStreamOn[index] = true;
     setTimeout(async () => {
       if (flvjs.default.isSupported()) {
         const element = 'videoElement' + index;

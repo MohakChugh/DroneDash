@@ -135,6 +135,22 @@ export class AdminReportComponent implements OnInit {
         .then(data => data)
         .catch((err) => err);
 
+      const plantChosen = this.dataStore.getDataStore('plantChosen');
+      if (plantChosen) {
+        query = `query MyQuery {
+          rback(where: {plantName: {_eq: "${plantChosen}"}}, order_by: {dateOfReportWriting: desc}) {
+            access
+            plantName
+            dateOfReportWriting
+            documentReferenceNumber
+            fileUrl
+            id
+            reportMonth
+            reportName
+            reportby
+          }
+        }`;
+      } else {
       query = `query MyQuery {
           rback(order_by: {dateOfReportWriting: desc}) {
             access
@@ -148,7 +164,7 @@ export class AdminReportComponent implements OnInit {
             reportby
           }
         }`;
-
+      }
       await client.request(query)
         .then(data => {
           this.data = data;

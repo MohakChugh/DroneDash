@@ -25,10 +25,10 @@
                 </button>
               </button>
               <br>
-              <div *ngIf="!liveStreamOn" class="vplayer" data-v="" (click)="player(i)">
+              <div *ngIf="!liveStreamOn[i]" class="vplayer" data-v="" (click)="player(i)">
                 <div class="plybtn" (click)="player(i)"></div>
               </div>
-              <video *ngIf="liveStreamOn" style="background-color: black;" id="videoElement{{i}}" width="100%">
+              <video *ngIf="liveStreamOn[i]" style="background-color: black;" id="videoElement{{i}}" width="100%">
               </video>
               <br><br><br>
             </div>
