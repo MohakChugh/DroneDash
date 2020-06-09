@@ -38,12 +38,12 @@ export class HeaderComponent implements OnInit {
     } else if (this.isPilot) {
       this.dashboardLink = '/pilotmainpage';
       this.report = '/reports';
-      this.scheduleLink = '/reports';
+      this.scheduleLink = '/pilotSchedule';
     } else {
       this.dashboardLink = '/plantmainpage';
       this.liveStreamLink = '/plantlivestream';
       this.report = '/reports';
-      this.scheduleLink = '/pilotSchedule';
+      this.scheduleLink = '/plantschedule';
     }
   }
 
