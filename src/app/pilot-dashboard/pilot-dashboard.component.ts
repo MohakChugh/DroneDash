@@ -45,8 +45,8 @@ export class PilotDashboardComponent implements OnInit {
         this.res = data;
         this.todoList = this.res.todoList;
         this.start = this.res.missionStatus[0].status;
-        if (this.start === 'stop') { this.start = 'start'; this.startStatus = 'Drone Currently Flying!'; }
-        else if (this.start === 'start') { this.start = 'stop'; this.startStatus = 'Drone Currently Not Flying!'; }
+        if (this.start === 'stop') { this.startStatus = 'Drone Currently Not Flying!'; }
+        else if (this.start === 'start') { this.startStatus = 'Drone Currently Flying!'; }
       })
       .catch(err => console.log(err));
   }
