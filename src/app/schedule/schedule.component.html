@@ -7,7 +7,7 @@
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3"
                             id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><a
                             class="btn btn-danger btn-icon-split" role="button"><span
-                                class="text-right text-white text">Logout</span></a></div>
+                                class="text-right text-white text" (click)="logout.logout()">Logout</span></a></div>
                 </nav>
                 <div class="card shadow">
                     <div class="card-header py-3">
@@ -19,21 +19,21 @@
                             <table class="table dataTable my-0" id="dataTable">
                                 <thead>
                                     <tr>
-                                        <th>Plant</th>
+                                        <th *ngIf="isAdmin || isMainBranch">Plant</th>
                                         <th>Date</th>
                                         <th>Window(s)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of [].constructor(10)">
-                                        <td>Data</td>
-                                        <td>Data</td>
-                                        <td>Data</td>
+                                    <tr *ngFor="let schedule of schedules">
+                                        <td *ngIf="isAdmin || isMainBranch">{{schedule.plant}}</td>
+                                        <td>{{schedule.date}}</td>
+                                        <td>{{schedule.window}}</td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td><strong>Plant</strong></td>
+                                        <td *ngIf="isAdmin || isMainBranch"><strong>Plant</strong></td>
                                         <td><strong>Date</strong></td>
                                         <td><strong>Window(s)</strong></td>
                                     </tr>

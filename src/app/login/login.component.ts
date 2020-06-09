@@ -73,6 +73,7 @@ export class LoginComponent implements OnInit {
         // fetch the plant name
         const plant = this.response.user[0].plant;
         this.dataStore.setDataStore('plant', plant);
+        this.dataStore.setDataStore('isPlant', true);
         // Route the user to plant dashboard
         this.router.navigateByUrl('plantmainpage');
       }
