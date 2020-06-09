@@ -23,7 +23,7 @@
       <li *ngIf="isAdmin" class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/changePassword']">
           <i class="fa fa-key"></i><span>Change Password for users</span></a>
       </li>
-      <li *ngIf="!isAdmin && !isMainBranch" class="nav-item" role="presentation"><a class="nav-link"
+      <li *ngIf="!isAdmin" class="nav-item" role="presentation"><a class="nav-link"
           [routerLink]="['/password']">
           <i class="fa fa-key"></i><span>Change Password</span></a>
       </li>
