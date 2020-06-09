@@ -35,6 +35,10 @@
                                                                     <tr *ngFor="let schedule of schedules">
                                                                         <td>{{schedule.date}}</td>
                                                                         <td>{{schedule.window}}</td>
+                                                                        <td> <button (click)="deleteSchedule(schedule.id)" class="btn btn-danger"> <i
+                                                                                    class="fa fa-trash"
+                                                                                    aria-hidden="true"></i> </button>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="text-left">

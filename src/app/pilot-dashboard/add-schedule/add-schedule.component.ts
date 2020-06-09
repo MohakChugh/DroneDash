@@ -27,6 +27,7 @@ export class AddScheduleComponent implements OnInit {
     });
     const query = `query MyQuery {
       schedules(order_by: {date: desc}, where: {plant: {_eq: "${this.plant}"}}) {
+        id
         date
         plant
         window
@@ -60,11 +61,44 @@ export class AddScheduleComponent implements OnInit {
 
     query = `query MyQuery {
         schedules(order_by: {date: desc}, where: {plant: {_eq: "${this.plant}"}}) {
+          id
           date
           plant
           window
         }
       }`;
+    await client.request(query)
+      .then(data => {
+        this.res = data;
+        this.schedules = this.res.schedules;
+      })
+      .catch(err => console.log(err));
+  }
+
+  async deleteSchedule(id: any) {
+    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      headers: {
+        'content-type': 'application/json',
+        'x-hasura-admin-secret': 'omnipresent'
+      },
+    });
+    let query = `mutation MyMutation {
+      delete_schedules(where: {id: {_eq: "${id}"}}) {
+        affected_rows
+      }
+    }
+    `;
+    await client.request(query)
+      .then(data => {
+      });
+    query = `query MyQuery {
+      schedules(order_by: {date: desc}, where: {plant: {_eq: "${this.plant}"}}) {
+        id
+        date
+        plant
+        window
+      }
+    }`;
     await client.request(query)
       .then(data => {
         this.res = data;
