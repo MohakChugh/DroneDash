@@ -20,6 +20,7 @@ import { AdminFeedbackTableComponent } from './admin-feedback-table/admin-feedba
 import { AdminChangePasswordComponent } from './admin-change-password/admin-change-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { AddScheduleComponent } from './pilot-dashboard/add-schedule/add-schedule.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'pilotmainpage', component: PilotDashboardComponent, canActivate: [PilotGuard]},
   { path: 'reportCreate', component: ReportGenerationComponent, canActivate: [PilotGuard] },
   { path: 'pilotSchedule', component: ScheduleComponent, canActivate: [PilotGuard] },
+  { path: 'addSchedule', component: AddScheduleComponent, canActivate: [PilotGuard] },
 
   { path: '**', component: PageNotFoundComponent }
 ];
