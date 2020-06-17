@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LogoutService } from '../logout.service';
+import { LogoutService } from '../services/logout.service';
 import { GraphQLClient } from 'graphql-request';
-import { DataStoreService } from '../data-store.service';
+import { DataStoreService } from '../services/data-store.service';
 
 @Component({
   selector: 'app-schedule',
@@ -55,10 +55,7 @@ export class ScheduleComponent implements OnInit {
       .then(data => {
         this.res = data;
         this.schedules = this.res.schedules;
-        console.log(this.schedules);
-        console.log(query);
       })
       .catch(err => console.log(err));
   }
-
 }

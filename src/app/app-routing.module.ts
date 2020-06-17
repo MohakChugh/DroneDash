@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { MainpageComponent } from './mainpage/mainpage.component';
-import { PlantMainpageComponent } from './plant-mainpage/plant-mainpage.component';
-import { LivestreamComponent } from './livestream/livestream.component';
-import { AdminLivestreamComponent } from './admin-livestream/admin-livestream.component';
-import { TableComponent } from './table/table.component';
+import { MainpageComponent } from './headquarters/mainpage/mainpage.component';
+import { PlantMainpageComponent } from './client/plant-mainpage/plant-mainpage.component';
+import { LivestreamComponent } from './client/livestream/livestream.component';
+import { AdminLivestreamComponent } from './admin/admin-livestream/admin-livestream.component';
+import { TableComponent } from './client/table/table.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { RegisterComponent } from './register/register.component';
-import { ReportGenerationComponent } from './report-generation/report-generation.component';
-import { AdminReportComponent } from './admin-report/admin-report.component';
-import { MainBranchReportsComponent } from './main-branch-reports/main-branch-reports.component';
-import { PilotDashboardComponent } from './pilot-dashboard/pilot-dashboard.component';
-import { AdminAuthGuard } from './admin-auth.guard';
-import { BasicAuthGuard } from './basic-auth.guard';
-import { MainbranchGuard } from './mainbranch.guard';
-import { PilotGuard } from './pilot.guard';
-import { AdminFeedbackTableComponent } from './admin-feedback-table/admin-feedback-table.component';
-import { AdminChangePasswordComponent } from './admin-change-password/admin-change-password.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { RegisterComponent } from './admin/register/register.component';
+import { ReportGenerationComponent } from './pilot/report-generation/report-generation.component';
+import { AdminReportComponent } from './admin/admin-report/admin-report.component';
+import { MainBranchReportsComponent } from './headquarters/main-branch-reports/main-branch-reports.component';
+import { PilotDashboardComponent } from './pilot/pilot-dashboard/pilot-dashboard.component';
+import { AdminAuthGuard } from './services/admin-auth.guard';
+import { BasicAuthGuard } from './services/basic-auth.guard';
+import { MainbranchGuard } from './services/mainbranch.guard';
+import { PilotGuard } from './services/pilot.guard';
+import { AdminFeedbackTableComponent } from './admin/admin-feedback-table/admin-feedback-table.component';
+import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
+import { ChangePasswordComponent } from './admin/change-password/change-password.component';
 import { ScheduleComponent } from './schedule/schedule.component';
-import { AddScheduleComponent } from './pilot-dashboard/add-schedule/add-schedule.component';
+import { AddScheduleComponent } from './pilot/pilot-dashboard/add-schedule/add-schedule.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },

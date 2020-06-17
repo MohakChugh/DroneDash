@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as axios from 'axios';
 import { Router } from '@angular/router';
-import { DataStoreService } from '../data-store.service';
+import { DataStoreService } from '../services/data-store.service';
 import { GraphQLClient } from 'graphql-request';
 
 @Component({

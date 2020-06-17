@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LogoutService } from '../logout.service';
+import { LogoutService } from '../services/logout.service';
 
 @Component({
   selector: 'app-page-not-found',
