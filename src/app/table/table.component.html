@@ -35,7 +35,7 @@
                       <td>{{report.plantName | titlecase}}</td>
                       <td>{{report.reportMonth | titlecase}}</td>
                       <td>{{report.documentReferenceNumber}}</td>
-                      <td>{{report.dateOfReportWriting}}</td>
+                      <td>{{report.dateOfReportWriting | date}}</td>
                       <td>
                         <button (click)="openUrl(report.fileUrl)" class="btn btn-primary">Click Here</button>
                       </td>

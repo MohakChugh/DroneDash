@@ -27,7 +27,7 @@
                                 <tbody>
                                     <tr *ngFor="let schedule of schedules">
                                         <td *ngIf="isAdmin || isMainBranch">{{schedule.plant | titlecase}}</td>
-                                        <td>{{schedule.date}}</td>
+                                        <td>{{schedule.date | date }}</td>
                                         <td>{{schedule.window}}</td>
                                     </tr>
                                 </tbody>
