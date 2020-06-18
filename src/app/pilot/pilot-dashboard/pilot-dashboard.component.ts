@@ -62,11 +62,24 @@ export class PilotDashboardComponent implements OnInit {
         'x-hasura-admin-secret': 'omnipresent'
       },
     });
-    const query = `mutation MyMutation {
+    let query = `mutation MyMutation {
       update_missionStatus(where: {plant: {_eq: "${this.pilotName}"}}, _set: {status: "${this.start}"}) {
         affected_rows
       }
     }`;
+    await client.request(query)
+      .then(data => { })
+      .catch(err => console.log(err));
+
+    let dayNight = 'night';
+    if (!this.enable) { dayNight = 'day'; }
+
+    query = `mutation MyMutation {
+        insert_pilotStats(objects: {day_night: "${dayNight}", operation: "survey", plant: "${this.pilotName}"}) {
+          affected_rows
+        }
+      }`;
+
     await client.request(query)
       .then(data => { })
       .catch(err => console.log(err));
