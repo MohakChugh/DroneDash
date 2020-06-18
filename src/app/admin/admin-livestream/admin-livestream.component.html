@@ -24,12 +24,15 @@
                   <i class="fas fa-broadcast-tower"> MISSION STOPPED </i>
                 </button>
               </button>
+              <button *ngIf="isMainBranch" class="btn btn-dark" (click)="requestLiveStream(name)">Request Livestream</button>
+
               <br>
               <div *ngIf="!liveStreamOn[i]" class="vplayer" data-v="" (click)="player(i)">
                 <div class="plybtn" (click)="player(i)"></div>
               </div>
               <video *ngIf="liveStreamOn[i]" style="background-color: black;" id="videoElement{{i}}" width="100%">
               </video>
+
               <br><br><br>
             </div>
           </div>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LogoutService } from '../../services/logout.service';
 import * as flvjs from 'flv.js';
 import { GraphQLClient } from 'graphql-request';
+import { DataStoreService } from 'src/app/services/data-store.service';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-admin-livestream',
@@ -21,9 +23,14 @@ export class AdminLivestreamComponent implements OnInit {
   liveStreamUrl: string;
   response: any;
   status = [];
-  constructor(public logout: LogoutService) { }
+  isMainBranch: boolean;
+  constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
 
   async ngOnInit() {
+
+    this.isMainBranch = this.dataStore.getDataStore('isMainBranch');
+    if (this.isMainBranch) { this.isMainBranch = true; }
+    else { this.isMainBranch = false; }
 
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
@@ -76,5 +83,22 @@ export class AdminLivestreamComponent implements OnInit {
         }
       }
     }, 1000);
+  }
+
+  async requestLiveStream(name: string) {
+    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      headers: {
+        'content-type': 'application/json',
+        'x-hasura-admin-secret': 'omnipresent'
+      },
+    });
+    const query = `mutation MyMutation {
+      insert_message(objects: {by: "Hindalco Headquater", message: "Hindalco Headquarter has requested to see the livestream of ${name} Plant. Please start the livestream ASAP", plant: "Hindalco Headquarter"}) {
+        affected_rows
+      }
+    }`;
+    await client.request(query)
+    .then(data => { alert('Request Sent!'); } )
+    .catch(err => console.log(err));
   }
 }
