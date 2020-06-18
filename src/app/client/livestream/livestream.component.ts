@@ -63,4 +63,8 @@ export class LivestreamComponent implements OnInit {
       }
     }, 1000);
   }
+
+  sendSMS() {
+    // Send SMS to the pilot and the admins that the client wants to see the flight
+  }
 }
