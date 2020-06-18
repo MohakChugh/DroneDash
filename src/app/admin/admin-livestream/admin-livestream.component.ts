@@ -4,6 +4,7 @@ import * as flvjs from 'flv.js';
 import { GraphQLClient } from 'graphql-request';
 import { DataStoreService } from 'src/app/services/data-store.service';
 import { TitleCasePipe } from '@angular/common';
+import { SmsService } from 'src/app/services/sms.service';
 
 @Component({
   selector: 'app-admin-livestream',
@@ -24,7 +25,7 @@ export class AdminLivestreamComponent implements OnInit {
   response: any;
   status = [];
   isMainBranch: boolean;
-  constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
+  constructor(public logout: LogoutService, private dataStore: DataStoreService, private sms: SmsService) { }
 
   async ngOnInit() {
 
@@ -86,6 +87,8 @@ export class AdminLivestreamComponent implements OnInit {
   }
 
   async requestLiveStream(name: string) {
+    // tslint:disable-next-line: max-line-length
+    this.sms.sendsms(`Hindalco Headquarter has requested to see the livestream of ${name} Plant. Please start the livestream ASAP`, 9810178257);
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',

@@ -66,7 +66,7 @@ export class LivestreamComponent implements OnInit {
   }
 
   async sendSMS() {
-    // this.sms.sendsms('Client is requesting to see the livestream', 7982169370);
+    this.sms.sendsms('Client is requesting to see the livestream', 9810178257);
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
