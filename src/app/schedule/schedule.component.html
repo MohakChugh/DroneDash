@@ -23,6 +23,7 @@
                                         <th>Date</th>
                                         <th>Window(s)</th>
                                         <th>Remarks</th>
+                                        <th>Type</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,6 +32,7 @@
                                         <td>{{schedule.date | date }}</td>
                                         <td>{{schedule.window}}</td>
                                         <td>{{schedule.remark}}</td>
+                                        <td>{{schedule.type}}</td>
                                         <td *ngIf="isPilot">
                                             Remarks: 
                                             <input type="text" placeholder="Enter Remarks Here" name="message" [(ngModel)]="remark">
@@ -44,6 +46,7 @@
                                         <td><strong>Date</strong></td>
                                         <td><strong>Window(s)</strong></td>
                                         <td><strong>Remarks</strong></td>
+                                        <td><strong>type</strong></td>
                                     </tr>
                                 </tfoot>
                             </table>

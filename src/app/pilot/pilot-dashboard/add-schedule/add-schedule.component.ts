@@ -14,6 +14,7 @@ export class AddScheduleComponent implements OnInit {
   win: string;
   plant: any;
   res: any;
+  type = 'Type';
   schedules = [];
   constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
 
@@ -31,6 +32,7 @@ export class AddScheduleComponent implements OnInit {
         date
         plant
         window
+        type
       }
     }`;
     await client.request(query)
@@ -42,37 +44,43 @@ export class AddScheduleComponent implements OnInit {
   }
 
   async insertSchedule() {
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
-      headers: {
-        'content-type': 'application/json',
-        'x-hasura-admin-secret': 'omnipresent'
-      },
-    });
-    let query = `mutation MyMutation {
-      insert_schedules(objects: {date: "${this.date}", plant: "${this.plant}", window: "${this.win}"}) {
-        affected_rows
-      }
-    }`;
-    await client.request(query)
-      .then(data => {
-        alert('Schedule Added');
-      })
-      .catch(err => console.log(err));
 
-    query = `query MyQuery {
-        schedules(order_by: {date: desc}, where: {plant: {_eq: "${this.plant}"}}) {
-          id
-          date
-          plant
-          window
+    if (this.type === 'Type') { alert('Please Select Type for the schedule'); }
+    else {
+
+      const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+        headers: {
+          'content-type': 'application/json',
+          'x-hasura-admin-secret': 'omnipresent'
+        },
+      });
+      let query = `mutation MyMutation {
+        insert_schedules(objects: {date: "${this.date}", plant: "${this.plant}", window: "${this.win}", type: "${this.type}"}) {
+          affected_rows
         }
       }`;
-    await client.request(query)
-      .then(data => {
-        this.res = data;
-        this.schedules = this.res.schedules;
-      })
-      .catch(err => console.log(err));
+      await client.request(query)
+        .then(data => {
+          alert('Schedule Added');
+        })
+        .catch(err => console.log(err));
+
+      query = `query MyQuery {
+          schedules(order_by: {date: desc}, where: {plant: {_eq: "${this.plant}"}}) {
+            id
+            date
+            plant
+            window
+            type
+          }
+        }`;
+      await client.request(query)
+        .then(data => {
+          this.res = data;
+          this.schedules = this.res.schedules;
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   async deleteSchedule(id: any) {
@@ -97,6 +105,7 @@ export class AddScheduleComponent implements OnInit {
         date
         plant
         window
+        type
       }
     }`;
     await client.request(query)
@@ -105,5 +114,10 @@ export class AddScheduleComponent implements OnInit {
         this.schedules = this.res.schedules;
       })
       .catch(err => console.log(err));
+  }
+
+  typeset(type: string) {
+    this.type = type;
+    console.log(this.type);
   }
 }

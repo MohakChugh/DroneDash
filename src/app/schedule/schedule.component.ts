@@ -42,6 +42,7 @@ export class ScheduleComponent implements OnInit {
           plant
           window
           remark
+          type
         }
       }`;
     }
@@ -53,6 +54,7 @@ export class ScheduleComponent implements OnInit {
           plant
           window
           remark
+          type
         }
       }`;
     }
@@ -94,6 +96,7 @@ export class ScheduleComponent implements OnInit {
             plant
             window
             remark
+            type
           }
         }`;
     }
@@ -105,6 +108,7 @@ export class ScheduleComponent implements OnInit {
             plant
             window
             remark
+            type
           }
         }`;
     }
