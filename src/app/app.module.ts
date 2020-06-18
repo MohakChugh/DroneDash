@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { UiSwitchModule } from 'ngx-toggle-switch';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -58,7 +59,8 @@ import { AddScheduleComponent } from './pilot/pilot-dashboard/add-schedule/add-s
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    UiSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

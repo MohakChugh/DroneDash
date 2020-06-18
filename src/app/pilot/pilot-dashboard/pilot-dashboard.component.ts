@@ -16,6 +16,7 @@ export class PilotDashboardComponent implements OnInit {
   todoList = [];
   start: string;
   startStatus: string;
+  enable: boolean;
   /** If mission status is start => means mission is currently not started yet, i.e. mission is currently stopped */
   constructor(private dataStore: DataStoreService, public logout: LogoutService) { }
 
