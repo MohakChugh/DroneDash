@@ -3,6 +3,7 @@ import { LogoutService } from '../../services/logout.service';
 import * as flvjs from 'flv.js';
 import { DataStoreService } from '../../services/data-store.service';
 import { GraphQLClient } from 'graphql-request';
+import { SmsService } from 'src/app/services/sms.service';
 
 @Component({
   selector: 'app-livestream',
@@ -17,7 +18,7 @@ export class LivestreamComponent implements OnInit {
   liveStreamOn = false;
   res: any;
   missionStatus: string;
-  constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
+  constructor(public logout: LogoutService, private dataStore: DataStoreService, private sms: SmsService) { }
 
   async ngOnInit() {
     this.CompanyName = this.dataStore.getDataStore('plant');
@@ -64,7 +65,24 @@ export class LivestreamComponent implements OnInit {
     }, 1000);
   }
 
-  sendSMS() {
+  async sendSMS() {
     // Send SMS to the pilot and the admins that the client wants to see the flight
+    // this.sms.sendsms('Client is requesting to see the livestream', 7982169370);
+    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      headers: {
+        'content-type': 'application/json',
+        'x-hasura-admin-secret': 'omnipresent'
+      },
+    });
+    const query = `mutation MyMutation {
+      insert_message(objects: {by: "Plant", message: "The Client from plant ${this.CompanyName} has requested to see the livestream. Please Start the livestream ASAP", plant: "${this.CompanyName}"}) {
+        affected_rows
+      }
+    }`;
+    await client.request(query)
+      .then(data => {
+      })
+      .catch(err => console.log(err));
+    alert('Request Sent');
   }
 }
