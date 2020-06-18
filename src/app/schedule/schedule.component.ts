@@ -16,6 +16,7 @@ export class ScheduleComponent implements OnInit {
   isPlant: any;
   isPilot: any;
   res: any;
+  remark: string;
   schedules = [];
   constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
 
@@ -36,18 +37,22 @@ export class ScheduleComponent implements OnInit {
     if (this.isAdmin || this.isMainBranch) {
       query = `query MyQuery {
         schedules(order_by: {date: desc}) {
+          id
           date
           plant
           window
+          remark
         }
       }`;
     }
     else {
       query = `query MyQuery {
         schedules(order_by: {date: desc}, where: {plant: {_eq: "${this.plantname}"}}) {
+          id
           date
           plant
           window
+          remark
         }
       }`;
     }
@@ -55,6 +60,59 @@ export class ScheduleComponent implements OnInit {
       .then(data => {
         this.res = data;
         this.schedules = this.res.schedules;
+        console.log(this.schedules);
+      })
+      .catch(err => console.log(err));
+  }
+
+  async addRemark(id: number) {
+    console.log(this.remark);
+    console.log(id);
+    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      headers: {
+        'content-type': 'application/json',
+        'x-hasura-admin-secret': 'omnipresent'
+      },
+    });
+    let query = `mutation MyMutation {
+      update_schedules(where: {id: {_eq: "${id}"}}, _set: {remark: "${this.remark}"}) {
+        affected_rows
+      }
+    }
+    `;
+    await client.request(query)
+      .then(data => {
+      })
+      .catch(err => console.log(err));
+
+    query = ``;
+    if (this.isAdmin || this.isMainBranch) {
+      query = `query MyQuery {
+          schedules(order_by: {date: desc}) {
+            id
+            date
+            plant
+            window
+            remark
+          }
+        }`;
+    }
+    else {
+      query = `query MyQuery {
+          schedules(order_by: {date: desc}, where: {plant: {_eq: "${this.plantname}"}}) {
+            id
+            date
+            plant
+            window
+            remark
+          }
+        }`;
+    }
+    await client.request(query)
+      .then(data => {
+        this.res = data;
+        this.schedules = this.res.schedules;
+        console.log(this.schedules);
       })
       .catch(err => console.log(err));
   }

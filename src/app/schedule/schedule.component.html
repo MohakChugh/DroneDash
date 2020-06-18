@@ -22,6 +22,7 @@
                                         <th *ngIf="isAdmin || isMainBranch">Plant</th>
                                         <th>Date</th>
                                         <th>Window(s)</th>
+                                        <th>Remarks</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -29,6 +30,12 @@
                                         <td *ngIf="isAdmin || isMainBranch">{{schedule.plant | titlecase}}</td>
                                         <td>{{schedule.date | date }}</td>
                                         <td>{{schedule.window}}</td>
+                                        <td>{{schedule.remark}}</td>
+                                        <td *ngIf="isPilot">
+                                            Remarks: 
+                                            <input type="text" placeholder="Enter Remarks Here" name="message" [(ngModel)]="remark">
+                                            <button class="btn-success" (click)="addRemark(schedule.id)"><i class="fa fa-save"></i></button>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
@@ -36,6 +43,7 @@
                                         <td *ngIf="isAdmin || isMainBranch"><strong>Plant</strong></td>
                                         <td><strong>Date</strong></td>
                                         <td><strong>Window(s)</strong></td>
+                                        <td><strong>Remarks</strong></td>
                                     </tr>
                                 </tfoot>
                             </table>
