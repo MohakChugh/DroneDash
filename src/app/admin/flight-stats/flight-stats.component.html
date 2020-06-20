@@ -1,0 +1,60 @@
+<div id="page-top">
+    <div id="wrapper">
+        <app-header></app-header>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3"
+                            id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><a
+                            class="btn btn-danger btn-icon-split" role="button"><span class="text-white text"
+                                (click)="logout.logout()">Logout</span></a></div>
+                </nav>
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">Flight Details</h3>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Logs of flights for the past 1 month
+                            </p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                                aria-describedby="dataTable_info">
+                                <table class="table dataTable my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Day or Night</th>
+                                            <th>plant Name</th>
+                                            <th>Operation</th>
+                                            <th>Time</th>
+                                            <th>Action Performed</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let stat of pilotStats">
+                                            <td>{{stat.day_night | titlecase}}</td>
+                                            <td>{{stat.plant | titlecase}}</td>
+                                            <td>{{stat.operation | titlecase}}</td>
+                                            <td>{{stat.timestamp | date: 'medium'}}</td>
+                                            <td *ngIf="stat.start_stop === 'stop'" class="alert alert-danger">{{stat.start_stop | titlecase}}</td>
+                                            <td *ngIf="stat.start_stop === 'start'" class="alert alert-success">{{stat.start_stop | titlecase}}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td><strong>Day or Night</strong></td>
+                                            <td><strong>plant Name</strong></td>
+                                            <td><strong>Operation</strong></td>
+                                            <td><strong>Time</strong></td>
+                                            <td><strong>Action Performed</strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-footer></app-footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+</div>

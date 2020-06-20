@@ -3,7 +3,6 @@ import { LogoutService } from '../../services/logout.service';
 import * as flvjs from 'flv.js';
 import { GraphQLClient } from 'graphql-request';
 import { DataStoreService } from 'src/app/services/data-store.service';
-import { TitleCasePipe } from '@angular/common';
 import { SmsService } from 'src/app/services/sms.service';
 
 @Component({

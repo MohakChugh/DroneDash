@@ -29,6 +29,8 @@ import { ChangePasswordComponent } from './admin/change-password/change-password
 import { ScheduleComponent } from './schedule/schedule.component';
 import { AddScheduleComponent } from './pilot/pilot-dashboard/add-schedule/add-schedule.component';
 import { ServerStatsComponent } from './admin/server-stats/server-stats.component';
+import { StatsComponent } from './headquarters/mainpage/stats/stats.component';
+import { FlightStatsComponent } from './admin/flight-stats/flight-stats.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { ServerStatsComponent } from './admin/server-stats/server-stats.componen
     ChangePasswordComponent,
     ScheduleComponent,
     AddScheduleComponent,
-    ServerStatsComponent
+    ServerStatsComponent,
+    StatsComponent,
+    FlightStatsComponent
   ],
   imports: [
     BrowserModule,

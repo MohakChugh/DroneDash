@@ -75,7 +75,7 @@ export class PilotDashboardComponent implements OnInit {
     if (!this.enable) { dayNight = 'day'; }
 
     query = `mutation MyMutation {
-        insert_pilotStats(objects: {day_night: "${dayNight}", operation: "survey", plant: "${this.pilotName}"}) {
+        insert_pilotStats(objects: {day_night: "${dayNight}", operation: "survey", plant: "${this.pilotName}", start_stop: "${this.start}"}) {
           affected_rows
         }
       }`;
