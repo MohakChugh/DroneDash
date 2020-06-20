@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'password', component: ChangePasswordComponent, canActivate: [BasicAuthGuard] },
 
   /** Admin Routes */
-  { path: 'admindashboard', component: MainpageComponent, canActivate: [AdminAuthGuard] },
+  { path: 'admindashboard', component: MainpageComponent/*, canActivate: [AdminAuthGuard] */},
   { path: 'adminlivestream', component: AdminLivestreamComponent/*, canActivate: [AdminAuthGuard] */},
   { path: 'adminReport', component: AdminReportComponent, canActivate: [AdminAuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AdminAuthGuard] },
