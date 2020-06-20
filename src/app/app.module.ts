@@ -28,6 +28,7 @@ import { AdminChangePasswordComponent } from './admin/admin-change-password/admi
 import { ChangePasswordComponent } from './admin/change-password/change-password.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { AddScheduleComponent } from './pilot/pilot-dashboard/add-schedule/add-schedule.component';
+import { ServerStatsComponent } from './admin/server-stats/server-stats.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { AddScheduleComponent } from './pilot/pilot-dashboard/add-schedule/add-s
     AdminChangePasswordComponent,
     ChangePasswordComponent,
     ScheduleComponent,
-    AddScheduleComponent
+    AddScheduleComponent,
+    ServerStatsComponent
   ],
   imports: [
     BrowserModule,

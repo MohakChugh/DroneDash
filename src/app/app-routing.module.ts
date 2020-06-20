@@ -21,6 +21,7 @@ import { AdminChangePasswordComponent } from './admin/admin-change-password/admi
 import { ChangePasswordComponent } from './admin/change-password/change-password.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { AddScheduleComponent } from './pilot/pilot-dashboard/add-schedule/add-schedule.component';
+import { ServerStatsComponent } from './admin/server-stats/server-stats.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'feedback', component: AdminFeedbackTableComponent, canActivate: [AdminAuthGuard] },
   { path: 'changePassword', component: AdminChangePasswordComponent, canActivate: [AdminAuthGuard] },
   { path: 'Adminschedule', component: ScheduleComponent, canActivate: [AdminAuthGuard] },
+  { path: 'server', component: ServerStatsComponent, canActivate: [AdminAuthGuard] },
 
   /** MainBranch Routes */
   { path: 'dashboard', component: MainpageComponent, canActivate: [MainbranchGuard] },
