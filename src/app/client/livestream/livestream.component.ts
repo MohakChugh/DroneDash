@@ -4,6 +4,8 @@ import * as flvjs from 'flv.js';
 import { DataStoreService } from '../../services/data-store.service';
 import { GraphQLClient } from 'graphql-request';
 import { SmsService } from 'src/app/services/sms.service';
+import { PhoneNumberService } from 'src/app/services/phone-number.service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-livestream',
@@ -18,7 +20,12 @@ export class LivestreamComponent implements OnInit {
   liveStreamOn = false;
   res: any;
   missionStatus: string;
-  constructor(public logout: LogoutService, private dataStore: DataStoreService, private sms: SmsService) { }
+  constructor(
+    public logout: LogoutService,
+    private dataStore: DataStoreService,
+    private sms: SmsService,
+    private phoneNumber: PhoneNumberService
+  ) { }
 
   async ngOnInit() {
     this.CompanyName = this.dataStore.getDataStore('plant');
@@ -66,7 +73,17 @@ export class LivestreamComponent implements OnInit {
   }
 
   async sendSMS() {
-    this.sms.sendsms('Client is requesting to see the livestream', 9810178257);
+    // Find the appropriate Phone Numbers and send them sms Notifications
+    const numPhone = this.phoneNumber[this.CompanyName];
+    numPhone.forEach(ph => {
+      this.sms.sendsms('Client is requesting to see the livestream', ph);
+    });
+
+    const adminPhone = this.phoneNumber.admin;
+    adminPhone.forEach(ph => {
+      this.sms.sendsms(`Client is requesting to see the livestream of plant ${this.CompanyName}`, ph);
+    });
+
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
@@ -74,7 +91,11 @@ export class LivestreamComponent implements OnInit {
       },
     });
     const query = `mutation MyMutation {
-      insert_message(objects: {by: "Plant", message: "The Client from plant ${this.CompanyName} has requested to see the livestream. Please Start the livestream ASAP", plant: "${this.CompanyName}"}) {
+      insert_message(
+    objects: { by: "Plant",
+    message: "The Client from plant ${this.CompanyName} has requested to see the livestream. Please Start the livestream ASAP",
+    plant: "${ this.CompanyName }"
+    }) {
         affected_rows
       }
     }`;

@@ -7,17 +7,22 @@ import * as axios from 'axios';
 export class SmsService {
 
   // smsUrl = 'https://2factor.in/API/V1/6dd0d498-b156-11ea-9fa5-0200cd936042/ADDON_SERVICES/SEND/TSMS';
-  smsUrl = 'https://2factor.in/API/R1/?module=PROMO_SMS&apikey=6dd0d498-b156-11ea-9fa5-0200cd936042&to=9810178257&from=omnipr&msg=HI';
+  // smsUrl = 'https://2factor.in/API/V1/81284ac9-a3a6-11e9-ade6-0200cd936042/ADDON_SERVICES/SEND/PSMS';
+  smsUrl = 'https://2factor.in/API/V1/6dd0d498-b156-11ea-9fa5-0200cd936042/ADDON_SERVICES/SEND/PSMS';
+  // smsUrl = 'https://2factor.in/API/R1/?module=PROMO_SMS&apikey=6dd0d498-b156-11ea-9fa5-0200cd936042&to=9810178257&from=omnipr&msg=HI';
   constructor() { }
 
   sendsms(message: string, phonenumber: number) {
+
+    console.log(`Message: ${message}, Sending to : ${phonenumber}`);
+
     const form = new FormData();
-    form.append('From', 'Omnipr');
-    form.append('TemplateName', 'notification');
+    form.append('From', 'Mohak Chugh');
+    form.append('Msg', `${message}`);
     form.append('To', `${phonenumber}`);
     axios.default.post(this.smsUrl, {
-      From: 'omnipr',
-      TemplateName: `notification`,
+      From: 'MKNODE',
+      Msg: `${message}`,
       To: `${phonenumber}`
     }).then(
       (response) => {
