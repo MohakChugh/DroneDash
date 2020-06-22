@@ -119,7 +119,7 @@ export class AdminLivestreamComponent implements OnInit {
       }
     }`;
     await client.request(query)
-    .then(data => { alert('Request Sent!'); } )
-    .catch(err => console.log(err));
+      .then(data => { alert('Request Sent!'); })
+      .catch(err => console.log(err));
   }
 }

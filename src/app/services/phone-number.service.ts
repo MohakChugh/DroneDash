@@ -11,6 +11,6 @@ export class PhoneNumberService {
   mahan = [9971468987, 8447070661];
   renukut = [7701913829];
 
-  admin = [9813381314, 8510831000];
+  admin = [9813381314, 8510831000, 9810178257];
   constructor() { }
 }
