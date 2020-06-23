@@ -17,6 +17,7 @@ export class ScheduleComponent implements OnInit {
   isPilot: any;
   res: any;
   remark: string;
+  remarks = [];
   schedules = [];
   constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
 
@@ -67,8 +68,8 @@ export class ScheduleComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-  async addRemark(id: number) {
-    console.log(this.remark);
+  async addRemark(id: number, index) {
+    console.log(this.remarks[id]);
     console.log(id);
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
@@ -77,7 +78,7 @@ export class ScheduleComponent implements OnInit {
       },
     });
     let query = `mutation MyMutation {
-      update_schedules(where: {id: {_eq: "${id}"}}, _set: {remark: "${this.remark}"}) {
+      update_schedules(where: {id: {_eq: "${id}"}}, _set: {remark: "${this.remarks[index]}"}) {
         affected_rows
       }
     }
@@ -119,5 +120,7 @@ export class ScheduleComponent implements OnInit {
         console.log(this.schedules);
       })
       .catch(err => console.log(err));
+
+    this.remarks[index] = '';
   }
 }

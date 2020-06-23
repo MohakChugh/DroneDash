@@ -27,7 +27,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let schedule of schedules">
+                                    <tr *ngFor="let schedule of schedules let i = index" [attr.data-index]="i">
                                         <td *ngIf="isAdmin || isMainBranch">{{schedule.plant | titlecase}}</td>
                                         <td>{{schedule.date | date }}</td>
                                         <td>{{schedule.window}}</td>
@@ -35,8 +35,8 @@
                                         <td>{{schedule.type}}</td>
                                         <td *ngIf="isPilot">
                                             Remarks: 
-                                            <input type="text" placeholder="Enter Remarks Here" name="message" [(ngModel)]="remark">
-                                            <button class="btn-success" (click)="addRemark(schedule.id)"><i class="fa fa-save"></i></button>
+                                            <input type="text" placeholder="Enter Remarks Here" name="message" [(ngModel)]="remarks[i]">
+                                            <button class="btn-success" (click)="addRemark(schedule.id, i)"><i class="fa fa-save"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
