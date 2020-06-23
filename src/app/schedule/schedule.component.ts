@@ -18,7 +18,7 @@ export class ScheduleComponent implements OnInit {
   res: any;
   remark: string;
   remarks = [];
-  schedules = [];
+  schedules: any;
   constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
 
   async ngOnInit() {
@@ -69,7 +69,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   async addRemark(id: number, index) {
-    console.log(this.remarks[id]);
+    console.log(this.remarks[index]);
     console.log(id);
     const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
       headers: {
