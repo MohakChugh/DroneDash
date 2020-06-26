@@ -6,11 +6,7 @@ import * as axios from 'axios';
 })
 export class SmsService {
 
-  // smsUrl = 'https://2factor.in/API/V1/6dd0d498-b156-11ea-9fa5-0200cd936042/ADDON_SERVICES/SEND/TSMS';
-  // smsUrl = 'https://2factor.in/API/V1/81284ac9-a3a6-11e9-ade6-0200cd936042/ADDON_SERVICES/SEND/PSMS';
-  // smsUrl = 'https://2factor.in/API/V1/6dd0d498-b156-11ea-9fa5-0200cd936042/ADDON_SERVICES/SEND/PSMS';
-  // smsUrl = 'https://2factor.in/API/R1/?module=PROMO_SMS&apikey=6dd0d498-b156-11ea-9fa5-0200cd936042&to=9810178257&from=omnipr&msg=HI';
-  smsUrl = 'https://2factor.in/API/V1/123a8bf0-b886-11e9-ade6-0200cd936042/ADDON_SERVICES/SEND/PSMS';
+  smsUrl = 'https://2factor.in/API/V1/81284ac9-a3a6-11e9-ade6-0200cd936042/ADDON_SERVICES/SEND/PSMS';
   constructor() { }
 
   sendsms(message: string, phonenumber: number) {

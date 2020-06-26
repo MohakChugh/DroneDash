@@ -94,7 +94,7 @@ export class LivestreamComponent implements OnInit {
       insert_message(
     objects: { by: "Plant",
     message: "The Client from plant ${this.CompanyName} has requested to see the livestream. Please Start the livestream ASAP",
-    plant: "${ this.CompanyName }"
+    plant: "${ this.CompanyName}"
     }) {
         affected_rows
       }
