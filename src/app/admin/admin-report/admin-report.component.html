@@ -5,8 +5,10 @@
       <div id="content">
         <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
           <div class="container-fluid">
-            <a class="btn btn-danger btn-icon-split" style="float: right;" role="button"><span class="text-white text"
-                (click)="logout.logout()">Logout</span></a></div>
+            <a class="btn btn-danger btn-icon-split" style="float: right;" role="button">
+              <span class="text-white text" (click)="logout.logout()">Logout</span>
+            </a>
+          </div>
         </nav>
         <div class="container-fluid">
           <h3 class="text-dark mb-4">ADMIN REPORTS</h3>
@@ -40,11 +42,9 @@
                       <td>{{report.dateOfReportWriting | date}}</td>
                       <td><button (click)="openUrl(report.fileUrl)" class="btn btn-outline-secondary">Click
                           Here</button></td>
-
                       <!-- If the File is not validated yet -->
                       <td *ngIf="report.access === 'AdminOnly' && !report.showInput"><button class="alert alert-danger"
                           (click)="changeAccess(i)">Upload Validated File</button></td>
-
                       <!-- Upload the new validated file -->
                       <input *ngIf="report.showInput" class="alert alert-info" type="file"
                         (change)="onSelectedFile($event)"><button *ngIf="report.showInput" class="btn btn-info"
@@ -53,7 +53,6 @@
                       <div *ngIf="report.loading" class="spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
                       </div>
-
                       <!-- If the file is validated -->
                       <td *ngIf="report.access === 'plant'"><button class="alert alert-success">Validated</button></td>
                       <td><span class="btn btn-danger" (click)="deleteReport(report.id)">Delete Report</span></td>

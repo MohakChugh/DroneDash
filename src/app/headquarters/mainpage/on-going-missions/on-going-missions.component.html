@@ -1,5 +1,11 @@
 <div *ngFor="let mission of missions">
     <br>
-    <div *ngIf="mission.status === 'start'" class="alert alert-success"> <h6><b><u>{{mission.plant | uppercase}}</u></b></h6> <span>DRONE CURRENTY FLYING</span> for plant {{mission.plant | titlecase}}</div>
-    <div *ngIf="mission.status === 'stop'" class="alert alert-danger"> <h6><b><u>{{mission.plant | uppercase}}</u></b></h6> <span>DRONE CURRENTLY NOT FLYING</span> for plant {{mission.plant | titlecase}}</div>
+    <div *ngIf="mission.status === 'start'" class="alert alert-success">
+        <h6><b><u>{{mission.plant | uppercase}}</u></b></h6>
+        <span>DRONE CURRENTY FLYING</span> for plant {{mission.plant | titlecase}}
+    </div>
+    <div *ngIf="mission.status === 'stop'" class="alert alert-danger">
+        <h6><b><u>{{mission.plant | uppercase}}</u></b></h6> <span>DRONE CURRENTLY NOT FLYING</span> for plant
+        {{mission.plant | titlecase}}
+    </div>
 </div>

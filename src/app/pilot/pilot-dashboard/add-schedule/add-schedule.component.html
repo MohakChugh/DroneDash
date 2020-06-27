@@ -4,10 +4,14 @@
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white text-right shadow mb-4 topbar static-top">
-                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3"
-                            id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><a
-                            class="btn btn-danger btn-icon-split" role="button"><span class="text-right text-white text"
-                                (click)="logout.logout()">Logout</span></a></div>
+                    <div class="container-fluid">
+                        <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <a class="btn btn-danger btn-icon-split" role="button">
+                            <span class="text-right text-white text" (click)="logout.logout()">Logout</span>
+                        </a>
+                    </div>
                 </nav>
                 <div class="container-fluid">
                     <div class="row justify-content-center">
@@ -35,7 +39,9 @@
                                                                     <tr *ngFor="let schedule of schedules">
                                                                         <td>{{schedule.date}}</td>
                                                                         <td>{{schedule.window}}</td>
-                                                                        <td> <button (click)="deleteSchedule(schedule.id)" class="btn btn-danger"> <i
+                                                                        <td> <button
+                                                                                (click)="deleteSchedule(schedule.id)"
+                                                                                class="btn btn-danger"> <i
                                                                                     class="fa fa-trash"
                                                                                     aria-hidden="true"></i> </button>
                                                                         </td>
@@ -64,14 +70,23 @@
                                                                                     </div>
                                                                                     <div class="form-group">
                                                                                         <div class="dropdown">
-                                                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                                              {{ type }}
+                                                                                            <button
+                                                                                                class="btn btn-secondary dropdown-toggle"
+                                                                                                type="button"
+                                                                                                id="dropdownMenuButton"
+                                                                                                data-toggle="dropdown"
+                                                                                                aria-haspopup="true"
+                                                                                                aria-expanded="false">
+                                                                                                {{ type }}
                                                                                             </button>
-                                                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                                              <a class="dropdown-item" (click)="typeset('survey')">Survey</a>
-                                                                                              <a class="dropdown-item" (click)="typeset('surveillance')">Surveillance</a>
+                                                                                            <div class="dropdown-menu"
+                                                                                                aria-labelledby="dropdownMenuButton">
+                                                                                                <a class="dropdown-item"
+                                                                                                    (click)="typeset('survey')">Survey</a>
+                                                                                                <a class="dropdown-item"
+                                                                                                    (click)="typeset('surveillance')">Surveillance</a>
                                                                                             </div>
-                                                                                          </div>
+                                                                                        </div>
                                                                                     </div>
                                                                                     <button (click)="insertSchedule()"
                                                                                         class="btn btn-primary btn-block text-white btn-user"
