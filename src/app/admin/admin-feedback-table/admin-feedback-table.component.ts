@@ -15,7 +15,7 @@ export class AdminFeedbackTableComponent implements OnInit {
   constructor(private dataStore: DataStoreService, public logout: LogoutService) { }
 
   async ngOnInit() {
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'
@@ -39,7 +39,7 @@ export class AdminFeedbackTableComponent implements OnInit {
   }
 
   async deleteMessage(id) {
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'

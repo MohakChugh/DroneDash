@@ -25,7 +25,7 @@ export class MainpageComponent implements OnInit {
     if (isAdmin) { this.adminName = 'Omnipresent Admin'; }
     if (isMainBranch) { this.adminName = 'Hindalco Headquarters'; }
 
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'

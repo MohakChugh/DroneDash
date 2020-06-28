@@ -32,7 +32,7 @@ export class LivestreamComponent implements OnInit {
 
     this.CompanyName = this.CompanyName.toLowerCase();
     this.liveStreamUrl = this.liveStreamUrl + this.CompanyName + '.flv';
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'
@@ -84,7 +84,7 @@ export class LivestreamComponent implements OnInit {
       this.sms.sendsms(`Client is requesting to see the livestream of plant ${this.CompanyName}`, ph);
     });
 
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'

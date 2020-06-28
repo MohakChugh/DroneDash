@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   async register() {
     if (this.password !== this.repeatPassword) { alert('The Password and its Confirmation did not match! Please try again!'); }
     else {
-      const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
         headers: {
           'content-type': 'application/json',
           'x-hasura-admin-secret': 'omnipresent'
@@ -49,6 +49,18 @@ export class RegisterComponent implements OnInit {
       await client.request(query)
         .then(data => { alert('User added successfully'); })
         .catch((err) => err);
+
+      if (this.role === 'pilot') {
+        const query = `mutation MyMutation {
+          insert_missionStatus(objects: {plant: "${this.plantname}", status: "stop"}) {
+            affected_rows
+          }
+        }`;
+        await client.request(query)
+          .then(data => { })
+          .catch((err) => err);
+
+      }
     }
   }
 }

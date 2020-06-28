@@ -17,7 +17,7 @@ export class AdminChangePasswordComponent implements OnInit {
   constructor(public logout: LogoutService) { }
 
   async ngOnInit() {
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'
@@ -48,7 +48,7 @@ export class AdminChangePasswordComponent implements OnInit {
     if (this.password !== this.confirmPassword) {
       alert('The password and the confirmation did not match! Please try again!');
     }
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'

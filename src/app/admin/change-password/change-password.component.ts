@@ -33,7 +33,7 @@ export class ChangePasswordComponent implements OnInit {
 
   async reset() {
     if (this.password !== this.confirmPassword) { alert(`The password and it's confirmation does not match! Please Try Again!`); }
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'

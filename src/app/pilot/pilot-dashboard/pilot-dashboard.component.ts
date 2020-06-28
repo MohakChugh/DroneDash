@@ -22,7 +22,7 @@ export class PilotDashboardComponent implements OnInit {
 
   async ngOnInit() {
     this.pilotName = this.dataStore.getDataStore('plant');
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'
@@ -45,6 +45,7 @@ export class PilotDashboardComponent implements OnInit {
       .then(data => {
         this.res = data;
         this.todoList = this.res.todoList;
+        console.log(this.res.missionStatus);
         this.start = this.res.missionStatus[0].status;
         if (this.start === 'stop') { this.startStatus = 'Drone Currently Not Flying!'; }
         else if (this.start === 'start') { this.startStatus = 'Drone Currently Flying!'; }
@@ -56,7 +57,7 @@ export class PilotDashboardComponent implements OnInit {
     if (this.start === 'stop') { this.start = 'start'; this.startStatus = 'Drone Currently Flying!'; }
     else if (this.start === 'start') { this.start = 'stop'; this.startStatus = 'Drone Currently Not Flying!'; }
 
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'

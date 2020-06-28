@@ -15,7 +15,7 @@ export class FlightStatsComponent implements OnInit {
   constructor(public logout: LogoutService, private dataStore: DataStoreService) { }
 
   async ngOnInit() {
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'

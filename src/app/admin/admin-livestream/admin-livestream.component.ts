@@ -38,7 +38,7 @@ export class AdminLivestreamComponent implements OnInit {
     if (this.isMainBranch) { this.isMainBranch = true; }
     else { this.isMainBranch = false; }
 
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'
@@ -107,7 +107,7 @@ export class AdminLivestreamComponent implements OnInit {
     });
 
     // tslint:disable-next-line: max-line-length
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'

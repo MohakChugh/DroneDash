@@ -50,7 +50,7 @@ export class ReportGenerationComponent implements OnInit {
             this.location = this.response.Data[0].Location;
             // Now add this location in the url of the file being uploaded
             // Add the data from here into the database, with an access level of primary
-            const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+            const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
               headers: {
                 'content-type': 'application/json',
                 'x-hasura-admin-secret': 'omnipresent'

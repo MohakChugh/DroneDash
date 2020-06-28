@@ -28,7 +28,7 @@ export class ScheduleComponent implements OnInit {
     this.isPlant = this.dataStore.getDataStore('isMainBranch');
     if (!this.isAdmin || !this.isMainBranch) { this.plantname = this.dataStore.getDataStore('plant'); }
 
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'
@@ -71,7 +71,7 @@ export class ScheduleComponent implements OnInit {
   async addRemark(id: number, index) {
     console.log(this.remarks[index]);
     console.log(id);
-    const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+    const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
       headers: {
         'content-type': 'application/json',
         'x-hasura-admin-secret': 'omnipresent'

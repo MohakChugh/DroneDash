@@ -30,8 +30,8 @@ const routes: Routes = [
   { path: 'password', component: ChangePasswordComponent, canActivate: [BasicAuthGuard] },
 
   /** Admin Routes */
-  { path: 'admindashboard', component: MainpageComponent/*, canActivate: [AdminAuthGuard] */},
-  { path: 'adminlivestream', component: AdminLivestreamComponent/*, canActivate: [AdminAuthGuard] */},
+  { path: 'admindashboard', component: MainpageComponent, canActivate: [AdminAuthGuard] },
+  { path: 'adminlivestream', component: AdminLivestreamComponent, canActivate: [AdminAuthGuard] },
   { path: 'adminReport', component: AdminReportComponent, canActivate: [AdminAuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AdminAuthGuard] },
   { path: 'feedback', component: AdminFeedbackTableComponent, canActivate: [AdminAuthGuard] },
@@ -53,7 +53,7 @@ const routes: Routes = [
   { path: 'plantschedule', component: ScheduleComponent, canActivate: [BasicAuthGuard] },
 
   /** Pilot Routes */
-  { path: 'pilotmainpage', component: PilotDashboardComponent, canActivate: [PilotGuard]},
+  { path: 'pilotmainpage', component: PilotDashboardComponent, canActivate: [PilotGuard] },
   { path: 'reportCreate', component: ReportGenerationComponent, canActivate: [PilotGuard] },
   { path: 'pilotSchedule', component: ScheduleComponent, canActivate: [PilotGuard] },
   { path: 'addSchedule', component: AddScheduleComponent, canActivate: [PilotGuard] },
