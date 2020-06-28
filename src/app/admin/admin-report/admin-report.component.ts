@@ -120,7 +120,7 @@ export class AdminReportComponent implements OnInit {
   async deleteReport(id: any) {
     const result = confirm('Are you sure you want to delete this file?');
     if (result) {
-      const client = new GraphQLClient('https://rbacksystem-fileupload.herokuapp.com/v1/graphql', {
+      const client = new GraphQLClient('http://35.238.176.134:8080/upload', {
         headers: {
           'content-type': 'application/json',
           'x-hasura-admin-secret': 'omnipresent'
@@ -151,7 +151,7 @@ export class AdminReportComponent implements OnInit {
           }
         }`;
       } else {
-      query = `query MyQuery {
+        query = `query MyQuery {
           rback(order_by: {dateOfReportWriting: desc}) {
             access
             plantName
