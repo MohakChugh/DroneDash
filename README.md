@@ -1,6 +1,7 @@
 # Hindalco Dashboard
 
-## Todo 
+## Todo
+
 - [x] Complete Authentication
 - [x] Only Let The Admin add new Users
 - [x] Role Based Access for live Stream
@@ -13,6 +14,7 @@
 - [x] The mainpage should have some important data which should be shown in the main page of the dashboard
 
 ## Admin Usage
+
 - Credentials
 Admin
     1. Email : mohak
@@ -60,11 +62,37 @@ Pilot
     6. See the reports after validation
 
 ## How the registration works
+
 Register the company with a username, eg `test`.
 Make sure to add a secure password: eg `test@123`.
 Then when the user is registered, then the drone link for the plant becomes : `rtmp://35.188.41.41/live/{{plantname}}`
 ie. If the name of the plant is Dahej, Then the drone link for the plant is `rtmp://35.188.41.41/live/test`
 
 ## Deployement on GCP
+
 clone the repo, and save the dist folder (output folder) in /var/www,
 Then restart the nginx server
+
+## Screenshots
+
+### Admin
+
+- Mainpage
+![Mainpage](./src/assets/screenshots/main.png)
+
+- Flight Logs
+![Mainpage](./src/assets/screenshots/flights.png)
+
+- Livestream
+![Mainpage](./src/assets/screenshots/livestream.png)
+
+- Messages
+![Mainpage](./src/assets/screenshots/message.png)
+
+- Reports
+![Mainpage](./src/assets/screenshots/reports.png)
+
+- Operation Schedules
+![Mainpage](./src/assets/screenshots/schedule.png)
+
+To check pages of other orles, please login :)
