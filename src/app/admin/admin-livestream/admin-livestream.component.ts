@@ -98,13 +98,13 @@ export class AdminLivestreamComponent implements OnInit {
     console.log(numPhone);
     console.log(adminPhone);
 
-    numPhone.forEach(ph => {
-      this.sms.sendsms(`Hindalco Headquarter has requested to see the livestream of ${name} Plant. Please start the livestream ASAP`, ph);
-    });
+    // numPhone.forEach(ph => {
+    //   this.sms.sendsms(`Headquarter has requested to see the livestream of ${name} Plant. Please start the livestream ASAP`, ph);
+    // });
 
-    adminPhone.forEach(ph => {
-      this.sms.sendsms(`Hindalco Headquarter has requested to see the livestream of ${name} Plant. Please start the livestream ASAP`, ph);
-    });
+    // adminPhone.forEach(ph => {
+    //   this.sms.sendsms(`Headquarter has requested to see the livestream of ${name} Plant. Please start the livestream ASAP`, ph);
+    // });
 
     // tslint:disable-next-line: max-line-length
     const client = new GraphQLClient('https://hindalco-database.herokuapp.com/v1/graphql', {
@@ -114,7 +114,7 @@ export class AdminLivestreamComponent implements OnInit {
       },
     });
     const query = `mutation MyMutation {
-      insert_message(objects: {by: "Hindalco Headquater", message: "Hindalco Headquarter has requested to see the livestream of ${name} Plant. Please start the livestream ASAP", plant: "Hindalco Headquarter"}) {
+      insert_message(objects: {by: "Headquater", message: "Headquarter has requested to see the livestream of ${name} Plant. Please start the livestream ASAP", plant: "Hindalco Headquarter"}) {
         affected_rows
       }
     }`;
