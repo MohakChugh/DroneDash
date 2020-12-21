@@ -120,7 +120,7 @@ export class AdminReportComponent implements OnInit {
   async deleteReport(id: any) {
     const result = confirm('Are you sure you want to delete this file?');
     if (result) {
-      const client = new GraphQLClient('http://35.238.176.134:8080/upload', {
+      const client = new GraphQLClient('https://omnipresent-dashboard-backend.herokuapp.com/upload', {
         headers: {
           'content-type': 'application/json',
           'x-hasura-admin-secret': 'omnipresent'
