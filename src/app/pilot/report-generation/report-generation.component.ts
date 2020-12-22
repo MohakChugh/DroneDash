@@ -25,7 +25,7 @@ export class ReportGenerationComponent implements OnInit {
 
   loading = false;
 
-  fileUploadUrl = 'https://omnipresent-dashboard-backend.herokuapp.com/upload';
+  fileUploadUrl = 'https://fileupload-test-drone.herokuapp.com/upload';
   constructor(private http: HttpClient, private dataStore: DataStoreService, public logout: LogoutService, private router: Router) { }
 
   ngOnInit(): void {

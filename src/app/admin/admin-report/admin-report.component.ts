@@ -95,7 +95,7 @@ export class AdminReportComponent implements OnInit {
     this.reports[i].loading = true;
     const formdata = new FormData();
     formdata.append('file', this.file);
-    this.http.post('https://omnipresent-dashboard-backend.herokuapp.com/upload', formdata)
+    this.http.post('https://fileupload-test-drone.herokuapp.com/upload', formdata)
       .subscribe(async res => {
         this.response = res;
         if (this.response.error === false) {
